@@ -1,6 +1,23 @@
 module ApplicationHelper
   DEFAULT_TIME = 1200
   # Put this into a rake task that runs at 10:30 every day
+  #
+  # Methods
+  # match_by_type - matches up to four users of same food type pref(erence)
+  # match_by_time - matches from a pool of users (default: all) with compatible times
+  # Both require to be matched to existing user
+  #
+  # match_remainder - puts all remaining users into groups
+  # fill_groups - fills all groups that are too small
+  # distribute_remaining - puts remaining
+  #
+  # assign_venues - assigns venues and times to groups
+  # get_venue - returns a random venue object that matches type and distance prefs
+  #
+  # TO DO
+  # redistributions - handling groups that are too small
+  #
+
   def match_by_type id, group_id, type, going_out
     # id is id of user being matched
     # Finds all users matching food type, discards non-compatible times
@@ -34,7 +51,7 @@ module ApplicationHelper
       if (user.start < endtime - 50 or user.end > start + 50 and type = "fast") or user.start < endtime - 100 or user.end > start + 100
         if user.start > start
           start = user.start
-        end
+      end
         if user.end < endtime
           endtime = user.end
         end
@@ -135,11 +152,14 @@ module ApplicationHelper
     # Gets a restaurant matching food type
     # Each type must have TWO OR MORE venues, or else an error will occur
     if type == "Any"
-      venues = Venue.all
+      venues = Venue.where("type != fastfood")
       return venues[Random.rand(venues.length)]
     else
       venues = Venue.find_by_type type
       return venues[Random.rand(venues.length)]
     end
+  end
+
+  def check_full 
   end
 end

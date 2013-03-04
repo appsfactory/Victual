@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
  	attr_accessible :distance, :email, :matched, :name, :timeEnd, :timeStart, :type, :going_out, 
  	:has_pref, :accepted, :group_id, :start, :end, :dist
+  belongs_to group
   	
   	validates :name, 
 	:presence =>  {:message => "User name cant be blank"},
