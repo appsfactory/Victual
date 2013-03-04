@@ -55,10 +55,6 @@ module Victual
 
     # Enable the asset pipeline
     config.assets.enabled = true
-    if Rails.env == "production"
-	config.middleware.use("Rack::GoogleAnalytics", :web_property_id => "UA-39016806-1"
-    end
-
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
   end
