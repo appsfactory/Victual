@@ -1,4 +1,5 @@
 Victual::Application.routes.draw do
+  match "/test", to: "application#test"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
