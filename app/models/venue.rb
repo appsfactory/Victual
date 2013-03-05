@@ -1,5 +1,5 @@
 class Venue < ActiveRecord::Base
-  attr_accessible :distance, :name, :type, :distString
+  attr_accessible :distance, :name, :foodtype, :distString
   has_many :groups
   validates :name,
 	:presence =>  {:message => "Name cant be blank"},
@@ -8,5 +8,5 @@ class Venue < ActiveRecord::Base
 
 	validates :distString, :presence => {:message => "Venue needs a distance"}
 
-	before_save { self.type.downcase! }
+	before_save { self.foodtype.downcase! }
 end

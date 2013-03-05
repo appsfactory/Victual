@@ -8,16 +8,17 @@ module ApplicationHelper
   # Both require to be matched to existing user
   #
   # match_remainder - puts all remaining users into groups
-  # fill_groups - fills all groups that are too small
-  # distribute_remaining - puts remaining
+  # fill_groups(M) - fills all groups that are too small
+  # distribute_remaining(M) - puts remaining
   #
   # assign_venues - assigns venues and times to groups
-  # get_venue - returns a random venue object that matches type and distance prefs
+  # get_venue(M) - returns a random venue object that matches type and distance prefs
   #
-  # TO DO
-  # redistributions - handling groups that are too small
+  # check_full - Checks all groups, destroys those not filled
+  # redistribute_all - Takes all non-matched users and puts them in groups
   #
 
+  include HelperHelper
   def match_by_type id, group_id, going_out
     # id is id of user being matched
     # Finds all users matching food type, discards non-compatible times
@@ -26,15 +27,15 @@ module ApplicationHelper
     # If going out, finds place
     users = []
     @user = User.find id
-    type = @user.type
-    if User.where("type = ? AND going_out = ? AND matched", type, going_out, false)
-      users.push(User.where("type = ? AND going_out = ? AND matched", type, going_out, false))
+    type = @user.foodtype
+    if User.where("foodtype = ? AND going_out = ? AND matched", type, going_out, false)
+      users.push(User.where("foodtype = ? AND going_out = ? AND matched", type, going_out, false))
     end
     if users.any
-      match_by_time(id, users, type)
+      match_by_time(id, users, going_out)
     end
   end
-  def match_by_time id, group_id, pool, going_out 
+  def match_by_time id, group_id, pool, going_out
     # Finds all with matching times from users with prefs.
     # Creates group of up to 4 (pref to distance match), sets matched to true
     # If going out, finds place
@@ -64,47 +65,20 @@ module ApplicationHelper
     # Ignores prefs, if any
 
     fill_groups going_out
-    users = Users.where("matched = ? AND going_out = ?", false, going_out)
+    users = User.where("matched = ? AND going_out = ?", false, going_out)
     while users.length >= 4
       @group = create_group
       users[0..3].each do |user|
-        
+        add_user_to_group user.id, @group.id
       end
-      
-      users = Users.where("matched = ? AND going_out = ?", false, going_out)
+
+      users = User.where("matched = ? AND going_out = ?", false, going_out)
     end
     distribute_remaining going_out
   end
-  def fill_groups going_out
-    # Find available groups
-    # Doesn't match time (yet)
-    users = Users.where("matched = ? AND going_out = ?", false, going_out)
-    Group.all.each do |group|
-      while group.users.length < 4
-        while !users.nil?
-          ## Possible Error when users is no longer array
-          add_user_to_group(users[0].id, group_id)          
-          users = Users.where("matched = ? AND going_out = ?", false, going_out)
-        end
-      end
-    end
-  end
-  def distribute_remaining going_out
-    # Find available groups
-    # Doesn't match time (yet)
-    users = Users.where("matched = ? AND going_out = ?", false, going_out)
-    while !users.nil?
-      Group.all.each do |group|
-        if group.users.length < 6
-          add_user_to_group(users[0].id, group_id)
-          users = Users.where("matched = ? AND going_out = ?", false, going_out)
-        end
-      end
-    end
-  end
 
 
-  
+
   ############################################
   #######   Setting up Group meeting   #######
   ############################################
@@ -118,27 +92,17 @@ module ApplicationHelper
       else
         meet_time = group.start
       end
-      @venue = get_venue(group.type, group.dist)
+      @venue = get_venue(group.foodtype, group.dist)
       group.venue_id = @venue.id
       group.save
     end
   end
-  def get_venue type, dist
-    # Gets a restaurant matching food type
-    # Each type must have TWO OR MORE venues, or else an error will occur
-    if type == "any"
-      venues = Venue.where("type != fastfood")
-      return venues[Random.rand(venues.length)]
-    else
-      venues = Venue.find_by_type type
-      return venues[Random.rand(venues.length)]
-    end
-  end
 
-  def check_full 
+
+  def check_full
     # Checks if all groups are full. Redistributes those that aren't
     # Going out is not pertinent
-    Groups.each do |group|
+    Group.all.each do |group|
       if group.users.length < 4
         group.users.each do |user|
           user.matched = false
@@ -152,7 +116,7 @@ module ApplicationHelper
   end
   def redistribute_all going_out
     # Redistributes all users in that category
-    users = Users.where("matched = ? AND going_out = ?", false, going_out)
+    users = User.where("matched = ? AND going_out = ?", false, going_out)
     while users and users.length >= 4
       @group = create_group
       filled = false
@@ -163,13 +127,13 @@ module ApplicationHelper
         else
           @group = create_group
           add_user_to_group user.id, @group.id
-          users = Users.where("matched = ? AND going_out = ?", false, going_out)
+          users = User.where("matched = ? AND going_out = ?", false, going_out)
         end
       end
     end
     counter = 20
     while users and users.length >= 1 and counter < 20
-      Groups.each do |group|
+      Group.each do |group|
         if group.users.length < 6
           add_user_to_group users[0].id, @group.id
         end
@@ -201,7 +165,7 @@ module ApplicationHelper
         @user.group_id = group_id
         @user.matched = true
         @user.save
-       
+
       end
     end
   end
