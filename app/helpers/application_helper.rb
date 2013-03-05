@@ -18,7 +18,7 @@ module ApplicationHelper
   # redistributions - handling groups that are too small
   #
 
-  def match_by_type id, group_id, type, going_out
+  def match_by_type id, group_id, going_out
     # id is id of user being matched
     # Finds all users matching food type, discards non-compatible times
     # Create group of up to 4 (preference given to similar distance)
@@ -26,6 +26,7 @@ module ApplicationHelper
     # If going out, finds place
     users = []
     @user = User.find id
+    type = @user.type
     if User.where("type = ? AND going_out = ? AND matched", type, going_out, false)
       users.push(User.where("type = ? AND going_out = ? AND matched", type, going_out, false))
     end
@@ -33,43 +34,26 @@ module ApplicationHelper
       match_by_time(id, users, type)
     end
   end
-  def match_by_time id, group_id, pool, going_out, type
+  def match_by_time id, group_id, pool, going_out 
     # Finds all with matching times from users with prefs.
     # Creates group of up to 4 (pref to distance match), sets matched to true
     # If going out, finds place
-    @user = User.find id
     if pool.any
       # There is a limited amount of users to select from
     else
       # Searches all users
       pool = User.where("going_out = ? AND matched AND has_pref", going_out, false, true))
     end
-    start = @user.start
-    endtime = @user.end
     pool.each do |user|
-      # Gives half an hour for fast food or an hour for normal
-      if (user.start < endtime - 50 or user.end > start + 50 and type = "fast") or user.start < endtime - 100 or user.end > start + 100
-        if user.start > start
-          start = user.start
-      end
-        if user.end < endtime
-          endtime = user.end
-        end
-        user.group_id = group_id
-        user.matched = true
-        user.save
-        if users.find_by_group_id(group_id).length >= 4
-          break
-        end
+      if users.find_by_group_id(group_id).length >= 4
+        break
+      else
+        add_user_to_group(id, group_id)
       end
     end
 
     # Save time constraints for group
 
-    @group = Group.find group_id
-    @group.start = start
-    @group.end = endtime
-    @group.save
   end
 
   ############################################
@@ -82,17 +66,11 @@ module ApplicationHelper
     fill_groups going_out
     users = Users.where("matched = ? AND going_out = ?", false, going_out)
     while users.length >= 4
-      @group = Group.new
+      @group = create_group
       users[0..3].each do |user|
-        user.group_id = @group.id
-        user.matched = true
-        user.save
+        
       end
-      @group.type = "Any"
-      @group.dist = 1000
-      @group.start = 1100
-      @group.end = 1500
-      @group.save
+      
       users = Users.where("matched = ? AND going_out = ?", false, going_out)
     end
     distribute_remaining going_out
@@ -104,9 +82,8 @@ module ApplicationHelper
     Group.all.each do |group|
       while group.users.length < 4
         while !users.nil?
-          users[0].group_id = group.id
-          users[0].matched = true
-          users[0].save
+          ## Possible Error when users is no longer array
+          add_user_to_group(users[0].id, group_id)          
           users = Users.where("matched = ? AND going_out = ?", false, going_out)
         end
       end
@@ -119,9 +96,7 @@ module ApplicationHelper
     while !users.nil?
       Group.all.each do |group|
         if group.users.length < 6
-          users[0].group_id = group.id
-          users[0].matched = true
-          users[0].save
+          add_user_to_group(users[0].id, group_id)
           users = Users.where("matched = ? AND going_out = ?", false, going_out)
         end
       end
@@ -151,7 +126,7 @@ module ApplicationHelper
   def get_venue type, dist
     # Gets a restaurant matching food type
     # Each type must have TWO OR MORE venues, or else an error will occur
-    if type == "Any"
+    if type == "any"
       venues = Venue.where("type != fastfood")
       return venues[Random.rand(venues.length)]
     else
@@ -161,5 +136,84 @@ module ApplicationHelper
   end
 
   def check_full 
+    # Checks if all groups are full. Redistributes those that aren't
+    # Going out is not pertinent
+    Groups.each do |group|
+      if group.users.length < 4
+        group.users.each do |user|
+          user.matched = false
+          user.accepted = false
+          user.group_id = nil
+          user.save
+        end
+        group.destroy!
+      end
+    end
+  end
+  def redistribute_all going_out
+    # Redistributes all users in that category
+    users = Users.where("matched = ? AND going_out = ?", false, going_out)
+    while users and users.length >= 4
+      @group = create_group
+      filled = false
+      users.each do |user|
+        if @group.users and @group.users.length >= 4
+          filled = true
+          break
+        else
+          @group = create_group
+          add_user_to_group user.id, @group.id
+          users = Users.where("matched = ? AND going_out = ?", false, going_out)
+        end
+      end
+    end
+    counter = 20
+    while users and users.length >= 1 and counter < 20
+      Groups.each do |group|
+        if group.users.length < 6
+          add_user_to_group users[0].id, @group.id
+        end
+      end
+      counter++ # Necessary if not enough groups to fill.
+    end
+  end
+
+  def add_user_to_group id, group_id
+    @group = Group.find(group_id)
+    @user = User.find(id)
+    if @user.end > @group.start + 100 or @user.start < @group.end - 100
+      # Gives half an hour for fast food or an hour for normal
+      if ((@user.start < @group.end - 50 or @user.end > @group.start + 50 and type = "fast") 
+          or user.start < @group.end - 100 or user.end > @group.start + 100)
+
+        if @user.start > @group.start
+          @group.start = @user.start
+        end
+        if @user.end < @group.end
+          @group.end = @user.end
+        end
+        if @group.type = "any" and @user.type != "any"
+          @group.type = @user.type
+        end
+        if @group.dist > @user.dist
+          @group.dist = @user.dist
+        end
+
+        @user.group_id = group_id
+        @user.matched = true
+        @user.save
+       
+      end
+    end
+  end
+
+  def create_group
+    @group = Group.new
+    @group.type = "any"
+    @group.dist = 1000
+    @group.start = 1100
+    @group.end = 1500
+    @group.save
+    return @group
   end
 end
