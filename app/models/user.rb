@@ -14,4 +14,5 @@ class User < ActiveRecord::Base
 	uniqueness: {:message => "Email already taken", case_sensitive: false }
 
 	before_save { self.email.downcase! }
+	before_save { self.type.downcase! }
 end
