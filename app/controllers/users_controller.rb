@@ -7,14 +7,17 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     puts '---- TYPE HERE ----'
     puts params[:commit]
-    
+
     if params[:out] == 'Go Out'
          @user.going_out = true
     else
         @user.going_out = false
     end
-
+    if @user.type
+       @user.has_pref = true
+    end
     if !@user.timeStart.nil?
+      @user.has_pref = true
       if @user.timeStart[1] == ':'
         temp = @user.timeStart[0] + @user.timeStart[2] + '0'
       else
@@ -39,19 +42,20 @@ class UsersController < ApplicationController
     end
 
     if @user.dist != 'Any'
+      @user.has_pref = true
       if @user.dist[2] == '5'
-        @user.dist = 5 
-      else 
+        @user.dist = 5
+      else
         @user.dist = 10
       end
-    else 
+    else
       @user.dist = 'any'
     end
 
-    if @user.save 
+    if @user.save
       UserMailer.confirmation(@user).deliver
     	redirect_to '/'
-    else 
+    else
     	redirect_to '/'
     end
   end

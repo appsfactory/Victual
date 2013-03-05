@@ -1,0 +1,14 @@
+<div class = "container">
+	<div class = "registerform" style = "padding-bottom: 0px; text-align:center;">
+			<%= form_for(:venue, url: venues_path) do |f| %>
+
+			<%= f.text_field :name, :placeholder => "Venue Name" , style: "width: 210px;"%>
+
+			<%= f.select :type, options_for_select(["Food Type", "Standard", "Foreign", "FastFood"], :disabled => ["Food Type"], :selected => ["Food Type"]), style: "width: 100%" %>
+
+			<%= f.select :distString, options_for_select(["Distance", "< 5 minutes away", "< 10 minutes away", "Other"], :disabled => ["Distance"], :selected => ["Distance"]), style: "width: 100%" %>
+			<%= f.submit "Add Venue", class: "btn", style: "width: 220px;"  %>
+
+			<% end %>
+	</div>
+</div>

@@ -1,0 +1,11 @@
+<div class = "container">
+	<div class = "registerform" style = "padding-bottom: 0px;">
+			<%= form_for(:session, url: sessions_path) do |f| %>
+
+			<%= f.password_field :name, :placeholder => "Admin Login" %>
+
+			<%= f.submit "Login", class: "btn", style: "width: 100%;" %>
+
+			<% end %>
+	</div>
+</div>
