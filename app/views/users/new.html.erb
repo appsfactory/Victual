@@ -44,12 +44,14 @@
 					<span class = "pull-right" style = "padding-right: 20px;">Distance:</span>
 				</h5>
 				<br>
-					<span class = "pull-left">
+				<table style = "width: 100%;">
+					<td class = "pull-left">
 									<%= f.select :type, options_for_select(["Any", "Standard", "Foreign", "FastFood"], :selected => ["Any"])%>
-					</span>
-					<span class = "pull-right">
-									<%= f.select :type, options_for_select(["Any", "Standard", "Foreign", "FastFood"], :selected => ["Any"])%>
-					</span>
+					</td>
+					<td class = "pull-right">
+									<%= f.select :dist, options_for_select(["Any", "< 5 minutes away", "< 10 minutes away"], :selected => ["Any"])%>
+					</td>
+				</table>
 				</div>
 				<a href = '#' >
 					<h6 class = "text-center" onclick = "showAdv()"> 
