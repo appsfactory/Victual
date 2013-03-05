@@ -42,7 +42,7 @@ module ApplicationHelper
       # There is a limited amount of users to select from
     else
       # Searches all users
-      pool = User.where("going_out = ? AND matched AND has_pref", going_out, false, true))
+      pool = User.where("going_out = ? AND matched AND has_pref", going_out, false, true)
     end
     pool.each do |user|
       if users.find_by_group_id(group_id).length >= 4
@@ -118,7 +118,7 @@ module ApplicationHelper
       else
         meet_time = group.start
       end
-      @venue =  = get_venue(group.type, group.dist)
+      @venue = get_venue(group.type, group.dist)
       group.venue_id = @venue.id
       group.save
     end
@@ -174,7 +174,7 @@ module ApplicationHelper
           add_user_to_group users[0].id, @group.id
         end
       end
-      counter++ # Necessary if not enough groups to fill.
+      counter+=1 # Necessary if not enough groups to fill.
     end
   end
 
@@ -183,8 +183,7 @@ module ApplicationHelper
     @user = User.find(id)
     if @user.end > @group.start + 100 or @user.start < @group.end - 100
       # Gives half an hour for fast food or an hour for normal
-      if ((@user.start < @group.end - 50 or @user.end > @group.start + 50 and type = "fast") 
-          or user.start < @group.end - 100 or user.end > @group.start + 100)
+      if ((@user.start < @group.end - 50 or @user.end > @group.start + 50 and type = "fast") or user.start < @group.end - 100 or user.end > @group.start + 100)
 
         if @user.start > @group.start
           @group.start = @user.start
