@@ -6,9 +6,9 @@ module HelperHelper
     users = User.where("matched = ? AND going_out = ?", false, going_out)
     Group.all.each do |group|
       while group.users.length < 4
-        while !users.nil?
+        while users and users.length >= 1
           ## Possible Error when users is no longer array
-          add_user_to_group(users[0].id, group_id)          
+          add_user_to_group(users[0].id, group.id)          
           users = User.where("matched = ? AND going_out = ?", false, going_out)
         end
       end
@@ -18,11 +18,13 @@ module HelperHelper
     # Find available groups
     # Doesn't match time (yet)
     users = User.where("matched = ? AND going_out = ?", false, going_out)
-    while users and users.length >= 1
+    while users and users.length >= 1 and users[0]
+      full = true
       if Group.all and Group.all.length >= 1
         Group.all.each do |group|
-          if group.users.length < 6
-            add_user_to_group(users[0].id, group_id)
+          if group.users.length < 6 and users[0]
+            full = false
+            add_user_to_group(users[0].id, group.id)
             users = User.where("matched = ? AND going_out = ?", false, going_out)
           end
         end
@@ -33,13 +35,16 @@ module HelperHelper
         end
         break
       end
+      if full
+        break
+      end
     end
   end
   def get_venue type, dist
     # Gets a restaurant matching food type
     # Each type must have TWO OR MORE venues, or else an error will occur
     if type == "any"
-      venues = Venue.where("foodtype != fastfood")
+      venues = Venue.where("foodtype != 'fastfood'")
       return venues[Random.rand(venues.length)]
     else
       venues = Venue.find_by_foodtype type

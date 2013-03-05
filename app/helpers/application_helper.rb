@@ -69,7 +69,7 @@ module ApplicationHelper
     while users.length >= 4
       @group = create_group
       users[0..3].each do |user|
-        
+        add_user_to_group user.id, @group.id
       end
       
       users = User.where("matched = ? AND going_out = ?", false, going_out)

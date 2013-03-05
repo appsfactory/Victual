@@ -1,4 +1,4 @@
-task(:schedule_lunch => :environment) do
+task(:lunch => :environment) do
   require 'application_controller'
   require 'application_helper'
   include ApplicationHelper
