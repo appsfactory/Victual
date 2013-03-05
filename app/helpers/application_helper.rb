@@ -42,7 +42,7 @@ module ApplicationHelper
       # There is a limited amount of users to select from
     else
       # Searches all users
-      pool = User.where("going_out = ? AND matched AND has_pref", going_out, false, true))
+      pool = User.where("going_out = ? AND matched AND has_pref", going_out, false, true)
     end
     start = @user.start
     endtime = @user.end
@@ -51,7 +51,7 @@ module ApplicationHelper
       if (user.start < endtime - 50 or user.end > start + 50 and type = "fast") or user.start < endtime - 100 or user.end > start + 100
         if user.start > start
           start = user.start
-      end
+        end
         if user.end < endtime
           endtime = user.end
         end
@@ -62,7 +62,6 @@ module ApplicationHelper
           break
         end
       end
-    end
 
     # Save time constraints for group
 
@@ -143,10 +142,9 @@ module ApplicationHelper
       else
         meet_time = group.start
       end
-      @venue =  = get_venue(group.type, group.dist)
+      @venue =  get_venue(group.type, group.dist)
       group.venue_id = @venue.id
       group.save
-    end
   end
   def get_venue type, dist
     # Gets a restaurant matching food type
@@ -162,4 +160,6 @@ module ApplicationHelper
 
   def check_full 
   end
+end
+end
 end

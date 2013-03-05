@@ -17830,3 +17830,228 @@ Migrating to CreateGroups (20130304211419)
   [1m[35m (1.0ms)[0m  commit transaction
   [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
 >>>>>>> 0c22b4cf33c9b0a8e4a59836bf468a79a082d197
+
+
+Started GET "/" for 127.0.0.1 at 2013-03-05 10:56:06 -0500
+Connecting to database specified by database.yml
+
+SyntaxError (/Users/farhanmunshi/Factory/Victual/app/helpers/application_helper.rb:45: syntax error, unexpected ')', expecting keyword_end
+/Users/farhanmunshi/Factory/Victual/app/helpers/application_helper.rb:146: syntax error, unexpected '='
+      @venue =  = get_venue(group.type, group.dist)
+                 ^
+/Users/farhanmunshi/Factory/Victual/app/helpers/application_helper.rb:165: syntax error, unexpected $end, expecting keyword_end):
+  app/controllers/application_controller.rb:1:in `<top (required)>'
+  app/controllers/users_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.5ms)
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-03-05 10:56:07 -0500
+
+SyntaxError (/Users/farhanmunshi/Factory/Victual/app/helpers/application_helper.rb:45: syntax error, unexpected ')', expecting keyword_end
+/Users/farhanmunshi/Factory/Victual/app/helpers/application_helper.rb:146: syntax error, unexpected '='
+      @venue =  = get_venue(group.type, group.dist)
+                 ^
+/Users/farhanmunshi/Factory/Victual/app/helpers/application_helper.rb:165: syntax error, unexpected $end, expecting keyword_end):
+  app/controllers/application_controller.rb:1:in `<top (required)>'
+  app/controllers/users_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-03-05 11:01:47 -0500
+
+SyntaxError (/Users/farhanmunshi/Factory/Victual/app/helpers/application_helper.rb:45: syntax error, unexpected ')', expecting keyword_end
+/Users/farhanmunshi/Factory/Victual/app/helpers/application_helper.rb:146: syntax error, unexpected '='
+      @venue =  = get_venue(group.type, group.dist)
+                 ^
+/Users/farhanmunshi/Factory/Victual/app/helpers/application_helper.rb:165: syntax error, unexpected $end, expecting keyword_end):
+  app/controllers/application_controller.rb:1:in `<top (required)>'
+  app/controllers/users_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-03-05 11:01:48 -0500
+
+SyntaxError (/Users/farhanmunshi/Factory/Victual/app/helpers/application_helper.rb:45: syntax error, unexpected ')', expecting keyword_end
+/Users/farhanmunshi/Factory/Victual/app/helpers/application_helper.rb:146: syntax error, unexpected '='
+      @venue =  = get_venue(group.type, group.dist)
+                 ^
+/Users/farhanmunshi/Factory/Victual/app/helpers/application_helper.rb:165: syntax error, unexpected $end, expecting keyword_end):
+  app/controllers/application_controller.rb:1:in `<top (required)>'
+  app/controllers/users_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-03-05 11:01:53 -0500
+
+SyntaxError (/Users/farhanmunshi/Factory/Victual/app/helpers/application_helper.rb:45: syntax error, unexpected ')', expecting keyword_end
+/Users/farhanmunshi/Factory/Victual/app/helpers/application_helper.rb:145: syntax error, unexpected '='
+      @venue =  = get_venue(group.type, group.dist)
+                 ^
+/Users/farhanmunshi/Factory/Victual/app/helpers/application_helper.rb:164: syntax error, unexpected $end, expecting keyword_end):
+  app/controllers/application_controller.rb:1:in `<top (required)>'
+  app/controllers/users_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-03-05 11:02:04 -0500
+
+SyntaxError (/Users/farhanmunshi/Factory/Victual/app/helpers/application_helper.rb:145: syntax error, unexpected '='
+      @venue =  = get_venue(group.type, group.dist)
+                 ^
+/Users/farhanmunshi/Factory/Victual/app/helpers/application_helper.rb:164: syntax error, unexpected $end, expecting keyword_end):
+  app/controllers/application_controller.rb:1:in `<top (required)>'
+  app/controllers/users_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-03-05 11:02:16 -0500
+
+SyntaxError (/Users/farhanmunshi/Factory/Victual/app/helpers/application_helper.rb:164: syntax error, unexpected $end, expecting keyword_end):
+  app/controllers/application_controller.rb:1:in `<top (required)>'
+  app/controllers/users_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-03-05 11:02:36 -0500
+
+SyntaxError (/Users/farhanmunshi/Factory/Victual/app/helpers/application_helper.rb:163: syntax error, unexpected $end, expecting keyword_end):
+  app/controllers/application_controller.rb:1:in `<top (required)>'
+  app/controllers/users_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-03-05 11:02:46 -0500
+
+SyntaxError (/Users/farhanmunshi/Factory/Victual/app/helpers/application_helper.rb:164: syntax error, unexpected $end, expecting keyword_end):
+  app/controllers/application_controller.rb:1:in `<top (required)>'
+  app/controllers/users_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-03-05 11:03:29 -0500
+
+SyntaxError (/Users/farhanmunshi/Factory/Victual/app/helpers/application_helper.rb:163: syntax error, unexpected $end, expecting keyword_end):
+  app/controllers/application_controller.rb:1:in `<top (required)>'
+  app/controllers/users_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-03-05 11:03:32 -0500
+
+SyntaxError (/Users/farhanmunshi/Factory/Victual/app/helpers/application_helper.rb:162: syntax error, unexpected $end, expecting keyword_end
+  end
+     ^):
+  app/controllers/application_controller.rb:1:in `<top (required)>'
+  app/controllers/users_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-03-05 11:03:41 -0500
+
+SyntaxError (/Users/farhanmunshi/Factory/Victual/app/helpers/application_helper.rb:164: syntax error, unexpected $end, expecting keyword_end):
+  app/controllers/application_controller.rb:1:in `<top (required)>'
+  app/controllers/users_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-03-05 11:03:44 -0500
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (3.0ms)
+Compiled bootstrap-responsive.css  (0ms)  (pid 27122)
+Compiled custom.css  (7ms)  (pid 27122)
+Compiled users.css  (2ms)  (pid 27122)
+Compiled jquery.js  (2ms)  (pid 27122)
+Compiled jquery_ujs.js  (0ms)  (pid 27122)
+Compiled bootstrap.js  (0ms)  (pid 27122)
+Compiled users.js  (150ms)  (pid 27122)
+Compiled application.js  (222ms)  (pid 27122)
+  Rendered layouts/_header.html.erb (0.6ms)
+Completed 200 OK in 437ms (Views: 379.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-03-05 11:03:45 -0500
+Served asset /application.css - 304 Not Modified (15ms)
+
+
+Started GET "/assets/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2013-03-05 11:03:45 -0500
+Served asset /bootstrap-responsive.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-03-05 11:03:45 -0500
+Served asset /users.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-03-05 11:03:45 -0500
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2013-03-05 11:03:45 -0500
+Served asset /bootstrap.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2013-03-05 11:03:45 -0500
+Served asset /custom.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-03-05 11:03:45 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2013-03-05 11:03:45 -0500
+Served asset /bootstrap.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-03-05 11:03:45 -0500
+Served asset /users.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-03-05 11:03:45 -0500
+Served asset /application.js - 304 Not Modified (5ms)
