@@ -4,9 +4,10 @@ module HelperHelper
     # Find available groups
     # Doesn't match time (yet)
     users = User.where("matched = ? AND going_out = ?", false, going_out)
-    Group.all.each do |group|
-      while group.users.length < 4
-        while users and users.length >= 1
+    groups = (Group.where("going_out = ?", going_out))
+    if groups.any? and groups.length >= 1
+      groups.each do |group|
+        while group.users.length < 4 and users and users.length >= 1
           ## Possible Error when users is no longer array
           add_user_to_group(users[0].id, group.id)          
           users = User.where("matched = ? AND going_out = ?", false, going_out)
@@ -20,8 +21,9 @@ module HelperHelper
     users = User.where("matched = ? AND going_out = ?", false, going_out)
     while users and users.length >= 1 and users[0]
       full = true
-      if Group.all and Group.all.length >= 1
-        Group.all.each do |group|
+      groups = Group.where("going_out = ?",going_out)
+      if groups and groups.length >= 1
+        groups.each do |group|
           if group.users.length < 6 and users[0]
             full = false
             add_user_to_group(users[0].id, group.id)
@@ -29,9 +31,12 @@ module HelperHelper
           end
         end
       else
-        @group = create_group
+        @group = create_group going_out
         users.each do |user|
           add_user_to_group user.id, @group.id
+          if @group.users.length >= 4
+            break
+          end
         end
         break
       end
@@ -79,12 +84,13 @@ module HelperHelper
     end
   end
 
-  def create_group
+  def create_group going_out
     @group = Group.new
     @group.foodtype = "any"
     @group.dist = 1000
     @group.start = 1100
     @group.end = 1500
+    @group.going_out = going_out
     @group.save
     return @group
   end

@@ -9,7 +9,7 @@ task :genusers, [:repeat, :going_out, :type, :timeS, :timeE, :dist] => [:environ
   timeS = (args[:timeS] || 1100).to_i
   timeE = (args[:timeE] || 1500).to_i
   dist = (args[:dist] || 1000).to_i
-  if  args[:going_out] = "1"
+  if  args[:going_out] == "1"
     going_out = true
   else
     going_out = false
@@ -21,13 +21,15 @@ task :genusers, [:repeat, :going_out, :type, :timeS, :timeE, :dist] => [:environ
     first = 0
     last = repeat
   end
+  puts first, last
   for i in first..last
     name = "name" + i.to_s
     email =  name+"@gmail.cm"
-
+    puts "Trying"
     @user = User.new(dist: dist, email: email, name: name, has_pref: has_pref, start: timeS,
              :end => timeE, accepted: false, matched: false, foodtype: type, going_out: going_out)
     @user.save!
+    puts "Success!"
   end
 end
 

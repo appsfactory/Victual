@@ -19,7 +19,7 @@ module ApplicationHelper
   #
 
   include HelperHelper
-  def match_by_type id, group_id, going_out
+  def match_by_type id, group_id 
     # id is id of user being matched
     # Finds all users matching food type, discards non-compatible times
     # Create group of up to 4 (preference given to similar distance)
@@ -28,28 +28,28 @@ module ApplicationHelper
     users = []
     @user = User.find id
     type = @user.foodtype
-    if User.where("foodtype = ? AND going_out = ? AND matched", type, going_out, false)
-      users.push(User.where("foodtype = ? AND going_out = ? AND matched", type, going_out, false))
+    if User.where("foodtype = ? AND going_out = ? AND matched = ?", type, true, false)
+      users = (User.where("foodtype = ? AND going_out = ? AND matched = ?", type, true, false))
     end
-    if users.any
-      match_by_time(id, users, going_out)
+    if users.length >= 1
+      match_by_time(id, group_id, users,true)
     end
   end
   def match_by_time id, group_id, pool, going_out 
     # Finds all with matching times from users with prefs.
     # Creates group of up to 4 (pref to distance match), sets matched to true
     # If going out, finds place
-    if pool.any
+    if pool.length >= 1
       # There is a limited amount of users to select from
     else
       # Searches all users
-      pool = User.where("going_out = ? AND matched AND has_pref", going_out, false, true)
+      pool = User.where("going_out = ? AND matched = ? AND has_pref = ?", going_out, false, true)
     end
     pool.each do |user|
-      if users.find_by_group_id(group_id).length >= 4
+      if Group.find(group_id).users.length >= 4
         break
       else
-        add_user_to_group(id, group_id)
+        add_user_to_group(user.id, group_id)
       end
     end
 
@@ -66,8 +66,13 @@ module ApplicationHelper
 
     fill_groups going_out
     users = User.where("matched = ? AND going_out = ?", false, going_out)
+    puts "-------------------------"
+    puts "Users in match_remainder"
+    puts users
+    puts users.length
+
     while users.length >= 4
-      @group = create_group
+      @group = create_group going_out
       users[0..3].each do |user|
         add_user_to_group user.id, @group.id
       end
@@ -83,7 +88,7 @@ module ApplicationHelper
   #######   Setting up Group meeting   #######
   ############################################
   def assign_venues
-    groups = Group.all
+    groups = Group.where("going_out = ?", true)
     groups.each do |group|
       if group.end.nil? or group.end > DEFAULT_TIME + 100
         meet_time = DEFAULT_TIME
@@ -103,6 +108,7 @@ module ApplicationHelper
     # Checks if all groups are full. Redistributes those that aren't
     # Going out is not pertinent
     Group.all.each do |group|
+      puts "Group", group.attributes
       if group.users.length < 4
         group.users.each do |user|
           user.matched = false
@@ -110,7 +116,7 @@ module ApplicationHelper
           user.group_id = nil
           user.save
         end
-        group.destroy!
+        group.delete
       end
     end
   end
@@ -118,27 +124,35 @@ module ApplicationHelper
     # Redistributes all users in that category
     users = User.where("matched = ? AND going_out = ?", false, going_out)
     while users and users.length >= 4
-      @group = create_group
+      @group = create_group going_out
       filled = false
       users.each do |user|
         if @group.users and @group.users.length >= 4
           filled = true
           break
         else
-          @group = create_group
           add_user_to_group user.id, @group.id
+          puts user.attributes
           users = User.where("matched = ? AND going_out = ?", false, going_out)
         end
       end
     end
-    counter = 20
+    counter = 0
     while users and users.length >= 1 and counter < 20
-      Group.each do |group|
+      @groups = Group.where("going_out = ?", going_out)
+      puts @groups
+      @groups.each do |group|
         if group.users.length < 6
-          add_user_to_group users[0].id, @group.id
+          puts "Adding to: " + group.id.to_s
+          add_user_to_group users[0].id, group.id
+          users = User.where("matched = ? AND going_out = ?", false, going_out)
+          if users[0].nil?
+            break
+          end
         end
       end
       counter+=1 # Necessary if not enough groups to fill.
+                 # Shouldn't be more than 3 left over users
     end
   end
 end

@@ -2,31 +2,57 @@ task(:lunch => :environment) do
   require 'application_controller'
   require 'application_helper'
   include ApplicationHelper
-  @users = User.where("has_pref = ? AND matched = ? AND foodtype != ? AND going_out = ?", true, false, "any", true)
-  while @users and @users.length >= 1
-    match_by_type(@users[0].id, create_group.id, true)
-    @users = User.where("has_pref = ? AND matched = ? AND foodtype != ? AND going_out = ?", true, false, "any", true)
+  # By type (users who are going out and have type preference)
+  prev = 0;
+  count = 0
+  @users = User.where("has_pref = ? AND matched = ? AND NOT foodtype = ? AND going_out = ?", true, false, "any", true)
+  while @users and @users.length >= 1 and count < 20
+    @group = create_group(true)
+    add_user_to_group @users[0].id, @group.id
+    match_by_type(@users[0].id, @group.id)
+    @users = User.where("has_pref = ? AND matched = ? AND NOT foodtype = ? AND going_out = ?", true, false, "any", true)
+    if prev == @users.length
+      count+=1;
+    end
+    prev = @users.length
   end
 
+  # Users with time constraint, going out
   @users = User.where("has_pref = ? AND matched = ? AND foodtype = ? AND going_out = ?", true, false, "any", true)
-  while @users and @users.length >= 1
+  prev = 0;
+  count = 0
+  while @users and @users.length >= 1 and count < 20
     temp = []
-    match_by_time(@users[0].id, create_group.id, temp,true)
+    match_by_time(@users[0].id, create_group(true).id, temp,true)
     @users = User.where("has_pref = ? AND matched = ? AND foodtype = ? AND going_out = ?", true, false, "any", true)
+    if prev == @users.length
+      count+=1;
+    end
+    prev = @users.length
   end
+  # Users with time constraint, packed lunch
   @users = User.where("has_pref = ? AND matched = ? AND going_out = ?", true, false, false)
-  while @users and @users.length >= 1
+  prev = 0;
+  count = 0
+  while @users and @users.length >= 1 and count < 20
     temp = []
-    match_by_time(@users[0].id, create_group.id, temp,true)
+    match_by_time(@users[0].id, create_group(false).id, temp,true)
     @users = User.where("has_pref = ? AND matched = ? AND going_out = ?", true, false, false)
+    if prev == @users.length
+      count+=1;
+    end
+    prev = @users.length
   end
 
-  match_remainder(true)
+
+  match_remainder true
   match_remainder false
 
-  assign_venues
-  check_full
 
+  # Call these again after declinations
+  check_full
   redistribute_all true
   redistribute_all false
+
+  assign_venues
 end
