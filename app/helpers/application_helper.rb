@@ -4,7 +4,7 @@ module ApplicationHelper
   #
   # Methods
   # match_by_type - matches up to four users of same food type pref(erence)
-  # match_by_time - matches from a pool of users (default: all) with compatible times
+  # fill_given_group - matches from a pool of users (default: all) with compatible times
   # Both require to be matched to existing user
   #
   # match_remainder - puts all remaining users into groups
@@ -32,10 +32,10 @@ module ApplicationHelper
       users = (User.where("foodtype = ? AND going_out = ? AND matched = ?", type, true, false))
     end
     if users.length >= 1
-      match_by_time(id, group_id, users,true)
+      fill_given_group(id, group_id, users,true)
     end
   end
-  def match_by_time id, group_id, pool, going_out
+  def fill_given_group id, group_id, pool, going_out
     # Finds all with matching times from users with prefs.
     # Creates group of up to 4 (pref to distance match), sets matched to true
     # If going out, finds place
@@ -66,11 +66,7 @@ module ApplicationHelper
 
     fill_groups going_out
     users = User.where("matched = ? AND going_out = ?", false, going_out)
-    puts "-------------------------"
-    puts "Users in match_remainder"
-    puts users
-    puts users.length
-
+    
     while users.length >= 4
       @group = create_group going_out
       users[0..3].each do |user|
@@ -108,9 +104,9 @@ module ApplicationHelper
     # Checks if all groups are full. Redistributes those that aren't
     # Going out is not pertinent
     Group.all.each do |group|
-      puts "Group", group.attributes
       if group.users.length < 4
         group.users.each do |user|
+          puts "Group", group.attributes
           user.matched = false
           user.accepted = false
           user.group_id = nil
@@ -121,6 +117,8 @@ module ApplicationHelper
     end
   end
   def redistribute_all going_out
+    puts "-----------------------"
+    puts "Redistributing these users: "
     # Redistributes all users in that category
     users = User.where("matched = ? AND going_out = ?", false, going_out)
     while users and users.length >= 4
@@ -154,43 +152,5 @@ module ApplicationHelper
       counter+=1 # Necessary if not enough groups to fill.
                  # Shouldn't be more than 3 left over users
     end
-  end
-
-  def add_user_to_group id, group_id
-    @group = Group.find(group_id)
-    @user = User.find(id)
-    if @user.end > @group.start + 100 or @user.start < @group.end - 100
-      # Gives half an hour for fast food or an hour for normal
-      if ((@user.start < @group.end - 50 or @user.end > @group.start + 50 and type = "fast") or user.start < @group.end - 100 or user.end > @group.start + 100)
-
-        if @user.start > @group.start
-          @group.start = @user.start
-        end
-        if @user.end < @group.end
-          @group.end = @user.end
-        end
-        if @group.type = "any" and @user.type != "any"
-          @group.type = @user.type
-        end
-        if @group.dist > @user.dist
-          @group.dist = @user.dist
-        end
-
-        @user.group_id = group_id
-        @user.matched = true
-        @user.save
-
-      end
-    end
-  end
-
-  def create_group
-    @group = Group.new
-    @group.type = "any"
-    @group.dist = 1000
-    @group.start = 1100
-    @group.end = 1500
-    @group.save
-    return @group
   end
 end

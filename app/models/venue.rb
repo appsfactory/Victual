@@ -6,7 +6,7 @@ class Venue < ActiveRecord::Base
 	uniqueness: {:message => "Venue exists", case_sensitive: false }
 
 
-	validates :distString, :presence => {:message => "Venue needs a distance"}
+	validates :distance, :presence => {:message => "Venue needs a distance"}
 
 	before_save { self.foodtype.downcase! }
 end

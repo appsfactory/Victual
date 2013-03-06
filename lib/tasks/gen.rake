@@ -1,4 +1,4 @@
-task :genusers, [:repeat, :going_out, :type, :timeS, :timeE, :dist] => [:environment] do |t, args|
+task :genusers, [:repeat, :going_out, :type, :dist, :timeS, :timeE] => [:environment] do |t, args|
   if args[:type]
     has_pref = true
   else
@@ -25,11 +25,14 @@ task :genusers, [:repeat, :going_out, :type, :timeS, :timeE, :dist] => [:environ
   for i in first..last
     name = "name" + i.to_s
     email =  name+"@gmail.cm"
-    puts "Trying"
     @user = User.new(dist: dist, email: email, name: name, has_pref: has_pref, start: timeS,
              :end => timeE, accepted: false, matched: false, foodtype: type, going_out: going_out)
-    @user.save!
-    puts "Success!"
+    if @user.save
+      puts "Success!"
+    else
+      puts "fail"
+      puts @user
+    end
   end
 end
 
