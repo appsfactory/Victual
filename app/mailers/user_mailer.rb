@@ -4,4 +4,8 @@ class UserMailer < ActionMailer::Base
   	@user = user
     mail(to: user.email, subject: 'You just set a lunch with Victual matching')
   end
+
+  def info(user)
+  	mail(to: user.email, subject: 'You Have Been Matched')
+  end
 end
