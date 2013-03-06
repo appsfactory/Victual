@@ -22,7 +22,11 @@ class VenuesController < ApplicationController
     end
 	end
 	def index
-		@venue = Venue.find_by_id(1)
+		@venues = Venue.all
+		end
+	def deleteVenue
+		@venue = Venue.find_by_id(params[:id])
+		@venue.destroy
+		redirect_to '/venues'
 	end
-
 end

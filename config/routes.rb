@@ -14,6 +14,7 @@ Victual::Application.routes.draw do
   match '/logout',      to: 'sessions#destroy'
   match '/add',         to: 'venues#new'
   match '/venues',      to: 'venues#index'
+  match '/deleteVenue', to: 'venues#deleteVenue'
 
 
   # The priority is based upon order of creation:
