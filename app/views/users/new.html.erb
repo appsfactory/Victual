@@ -46,7 +46,7 @@
 				<br>
 				<table style = "width: 100%;">
 					<td class = "pull-left">
-									<%= f.select :type, options_for_select(["Any", "Standard", "Foreign", "FastFood"], :selected => ["Any"])%>
+									<%= f.select :foodtype, options_for_select(["Any", "Standard", "Foreign", "FastFood"], :selected => ["Any"])%>
 					</td>
 					<td class = "pull-right">
 									<%= f.select :dist, options_for_select(["Any", "< 5 minutes away", "< 10 minutes away"], :selected => ["Any"])%>

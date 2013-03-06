@@ -29391,3 +29391,1789 @@ Served asset /users.js - 304 Not Modified (0ms)
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-03-05 16:38:13 -0500
 Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-03-06 09:29:58 -0500
+Connecting to database specified by database.yml
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (4.6ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+Completed 200 OK in 149ms (Views: 94.6ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2013-03-06 09:29:59 -0500
+Served asset /admins.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-03-06 09:29:59 -0500
+Served asset /application.css - 200 OK (19ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2013-03-06 09:29:59 -0500
+Served asset /custom.css - 200 OK (1ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-03-06 09:29:59 -0500
+Served asset /sessions.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2013-03-06 09:29:59 -0500
+Served asset /bootstrap-responsive.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2013-03-06 09:29:59 -0500
+Served asset /bootstrap.css - 200 OK (5ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-03-06 09:29:59 -0500
+Served asset /users.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/venues.css?body=1" for 127.0.0.1 at 2013-03-06 09:29:59 -0500
+Served asset /venues.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-03-06 09:29:59 -0500
+Served asset /jquery.js - 200 OK (6ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-03-06 09:29:59 -0500
+Served asset /jquery_ujs.js - 200 OK (2ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2013-03-06 09:29:59 -0500
+Served asset /bootstrap.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-03-06 09:29:59 -0500
+Served asset /sessions.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/admins.js?body=1" for 127.0.0.1 at 2013-03-06 09:29:59 -0500
+Served asset /admins.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-03-06 09:29:59 -0500
+Served asset /users.js - 200 OK (38ms)
+
+
+Started GET "/assets/venues.js?body=1" for 127.0.0.1 at 2013-03-06 09:29:59 -0500
+Served asset /venues.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-03-06 09:29:59 -0500
+Served asset /application.js - 200 OK (11ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2013-03-06 09:30:14 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LFx7qFNYIT8ZJQi9SCrVBcE6r5qmtLfWisC7LYYlBtQ=", "user"=>{"email"=>"farhanm995@gmail.com", "name"=>"farhan", "timeStart"=>"11:00 AM", "timeEnd"=>"3:00 PM", "type"=>"Foreign", "dist"=>"< 5 minutes away"}, "out"=>"Go Out"}
+Completed 500 Internal Server Error in 1ms
+
+ActiveModel::MassAssignmentSecurity::Error (Can't mass-assign protected attributes: type):
+  app/controllers/users_controller.rb:7:in `new'
+  app/controllers/users_controller.rb:7:in `create'
+
+
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.6ms)
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.2ms)
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (1.4ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (0.9ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (1.3ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Migrating to CreateUsers (20130304160415)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255), "name" varchar(255), "matched" boolean, "type" varchar(255), "distance" varchar(255), "timeStart" varchar(255), "timeEnd" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130304160415')[0m
+  [1m[35m (1.0ms)[0m  commit transaction
+Migrating to AddGoingOutToUsers (20130304195232)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "users" ADD "going_out" boolean
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "users" ADD "has_pref" boolean[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "users" ADD "accepted" boolean
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "users" ADD "group_id" integer[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130304195232')
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+Migrating to AddStartToUsers (20130304195551)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "users" ADD "start" int[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "users" ADD "end" int
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130304195551')[0m
+  [1m[35m (0.7ms)[0m  commit transaction
+Migrating to AddDistToUsers (20130304204950)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "users" ADD "dist" int
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130304204950')[0m
+  [1m[35m (0.7ms)[0m  commit transaction
+Migrating to CreateVenues (20130304211202)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "venues" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "type" varchar(255), "distance" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130304211202')[0m
+  [1m[35m (0.8ms)[0m  commit transaction
+Migrating to CreateGroups (20130304211419)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "groups" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "venue_id" integer, "start" integer, "end" integer, "dist" integer, "type" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130304211419')[0m
+  [1m[35m (1.0ms)[0m  commit transaction
+Migrating to CreateAdmins (20130305154903)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "admins" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130305154903')[0m
+  [1m[35m (0.8ms)[0m  commit transaction
+Migrating to RemoveTypeFromVenues (20130305185114)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TEMPORARY TABLE "altered_venues" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "type" varchar(255), "distance" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "venues"[0m
+  [1m[35m (0.2ms)[0m  DROP TABLE "venues"
+  [1m[36m (0.1ms)[0m  [1mCREATE TABLE "venues" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "distance" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  SELECT * FROM "altered_venues"
+  [1m[36m (0.3ms)[0m  [1mDROP TABLE "altered_venues"[0m
+  [1m[35m (0.1ms)[0m  CREATE TEMPORARY TABLE "altered_groups" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "venue_id" integer, "start" integer, "end" integer, "dist" integer, "type" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mSELECT * FROM "groups"[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "groups"
+  [1m[36m (0.1ms)[0m  [1mCREATE TABLE "groups" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "venue_id" integer, "start" integer, "end" integer, "dist" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  SELECT * FROM "altered_groups"
+  [1m[36m (0.1ms)[0m  [1mDROP TABLE "altered_groups"[0m
+  [1m[35m (0.1ms)[0m  CREATE TEMPORARY TABLE "altered_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255), "name" varchar(255), "matched" boolean, "type" varchar(255), "distance" varchar(255), "timeStart" varchar(255), "timeEnd" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "going_out" boolean, "has_pref" boolean, "accepted" boolean, "group_id" integer, "start" integer, "end" integer, "dist" integer) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "users"[0m
+  [1m[35m (0.1ms)[0m  DROP TABLE "users"
+  [1m[36m (0.1ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255), "name" varchar(255), "matched" boolean, "distance" varchar(255), "timeStart" varchar(255), "timeEnd" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "going_out" boolean, "has_pref" boolean, "accepted" boolean, "group_id" integer, "start" integer, "end" integer, "dist" integer) [0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "altered_users"
+  [1m[36m (0.1ms)[0m  [1mDROP TABLE "altered_users"[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "venues" ADD "foodtype" varchar(255)
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "groups" ADD "foodtype" varchar(255)[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "users" ADD "foodtype" varchar(255)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130305185114')[0m
+  [1m[35m (1.1ms)[0m  commit transaction
+Migrating to AddDistStringToVenues (20130305195811)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "venues" ADD "distString" varchar(255)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130305195811')[0m
+  [1m[35m (0.6ms)[0m  commit transaction
+Migrating to AddFoodtypeToVenues (20130305204407)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "venues" ADD "foodtype" varchar(255)
+SQLite3::SQLException: duplicate column name: foodtype: ALTER TABLE "venues" ADD "foodtype" varchar(255)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (1.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (20130304160415)
+Migrating to AddGoingOutToUsers (20130304195232)
+Migrating to AddStartToUsers (20130304195551)
+Migrating to AddDistToUsers (20130304204950)
+Migrating to CreateVenues (20130304211202)
+Migrating to CreateGroups (20130304211419)
+Migrating to CreateAdmins (20130305154903)
+Migrating to RemoveTypeFromVenues (20130305185114)
+Migrating to AddDistStringToVenues (20130305195811)
+Migrating to AddGoingOutToGroups (20130305205829)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "groups" ADD "going_out" boolean
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130305205829')[0m
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+
+
+Started GET "/" for 127.0.0.1 at 2013-03-06 09:47:01 -0500
+Connecting to database specified by database.yml
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (4.6ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+Completed 200 OK in 129ms (Views: 76.7ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-03-06 09:47:02 -0500
+Served asset /application.css - 200 OK (13ms)
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2013-03-06 09:47:02 -0500
+Served asset /admins.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-03-06 09:47:02 -0500
+Served asset /sessions.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2013-03-06 09:47:02 -0500
+Served asset /custom.css - 200 OK (1ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2013-03-06 09:47:02 -0500
+Served asset /bootstrap.css - 200 OK (2ms)
+
+
+Started GET "/assets/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2013-03-06 09:47:02 -0500
+Served asset /bootstrap-responsive.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-03-06 09:47:02 -0500
+Served asset /users.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/venues.css?body=1" for 127.0.0.1 at 2013-03-06 09:47:02 -0500
+Served asset /venues.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-03-06 09:47:02 -0500
+Served asset /jquery.js - 200 OK (6ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-03-06 09:47:02 -0500
+Served asset /jquery_ujs.js - 200 OK (2ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2013-03-06 09:47:02 -0500
+Served asset /bootstrap.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/admins.js?body=1" for 127.0.0.1 at 2013-03-06 09:47:02 -0500
+Served asset /admins.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-03-06 09:47:02 -0500
+Served asset /sessions.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-03-06 09:47:02 -0500
+Served asset /users.js - 200 OK (41ms)
+
+
+Started GET "/assets/venues.js?body=1" for 127.0.0.1 at 2013-03-06 09:47:02 -0500
+Served asset /venues.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-03-06 09:47:02 -0500
+Served asset /application.js - 200 OK (7ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2013-03-06 09:47:13 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LFx7qFNYIT8ZJQi9SCrVBcE6r5qmtLfWisC7LYYlBtQ=", "user"=>{"email"=>"fa@g.v", "name"=>"fsadsa", "timeStart"=>"12:00 PM", "timeEnd"=>"2:00 PM", "foodtype"=>"FastFood", "dist"=>"< 10 minutes away"}, "out"=>"Go Out"}
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `type' for #<User:0x007fb34cd7b9d0>):
+  app/controllers/users_controller.rb:16:in `create'
+
+
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.9ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2013-03-06 09:47:27 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LFx7qFNYIT8ZJQi9SCrVBcE6r5qmtLfWisC7LYYlBtQ=", "user"=>{"email"=>"fa@g.v", "name"=>"fsadsa", "timeStart"=>"12:00 PM", "timeEnd"=>"2:00 PM", "foodtype"=>"FastFood", "dist"=>"< 10 minutes away"}, "out"=>"Go Out"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('fa@g.v') LIMIT 1
+  [1m[36mSQL (3.0ms)[0m  [1mINSERT INTO "users" ("accepted", "created_at", "dist", "distance", "email", "end", "foodtype", "going_out", "group_id", "has_pref", "matched", "name", "start", "timeEnd", "timeStart", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["accepted", nil], ["created_at", Wed, 06 Mar 2013 14:47:27 UTC +00:00], ["dist", 10], ["distance", nil], ["email", "fa@g.v"], ["end", 200], ["foodtype", "fastfood"], ["going_out", true], ["group_id", nil], ["has_pref", true], ["matched", nil], ["name", "fsadsa"], ["start", 1200], ["timeEnd", "2:00 PM"], ["timeStart", "12:00 PM"], ["updated_at", Wed, 06 Mar 2013 14:47:27 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  Rendered user_mailer/confirmation.html.erb (0.3ms)
+
+Sent mail to fa@g.v (5490ms)
+Date: Wed, 06 Mar 2013 09:47:27 -0500
+From: cafvictual@gmail.com
+To: fa@g.v
+Message-ID: <513756ffb90ca_782a3fd9a6722ddc42776@Farhans-MacBook-Pro.local.mail>
+Subject: You just set a lunch with Victual matching
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<h5> Welcome to Victual fsadsa </h5>
+<p>You will get another email around 10:30 giving you your group members and location </p>
+Redirected to http://localhost:3000/
+Completed 302 Found in 5590ms (ActiveRecord: 4.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-03-06 09:47:33 -0500
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+Completed 200 OK in 10ms (Views: 9.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-03-06 09:47:33 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2013-03-06 09:47:33 -0500
+Served asset /admins.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2013-03-06 09:47:33 -0500
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-03-06 09:47:33 -0500
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2013-03-06 09:47:33 -0500
+Served asset /custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2013-03-06 09:47:33 -0500
+Served asset /bootstrap-responsive.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-03-06 09:47:33 -0500
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/venues.css?body=1" for 127.0.0.1 at 2013-03-06 09:47:33 -0500
+Served asset /venues.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-03-06 09:47:33 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-03-06 09:47:33 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admins.js?body=1" for 127.0.0.1 at 2013-03-06 09:47:33 -0500
+Served asset /admins.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2013-03-06 09:47:33 -0500
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-03-06 09:47:33 -0500
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-03-06 09:47:33 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/venues.js?body=1" for 127.0.0.1 at 2013-03-06 09:47:33 -0500
+Served asset /venues.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-03-06 09:47:33 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-03-06 09:50:12 -0500
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (2.5ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+Completed 200 OK in 56ms (Views: 10.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-03-06 09:50:12 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2013-03-06 09:50:12 -0500
+Served asset /bootstrap-responsive.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2013-03-06 09:50:12 -0500
+Served asset /admins.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2013-03-06 09:50:12 -0500
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2013-03-06 09:50:12 -0500
+Served asset /custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-03-06 09:50:12 -0500
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-03-06 09:50:12 -0500
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/venues.css?body=1" for 127.0.0.1 at 2013-03-06 09:50:12 -0500
+Served asset /venues.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-03-06 09:50:12 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2013-03-06 09:50:12 -0500
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-03-06 09:50:12 -0500
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-03-06 09:50:12 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-03-06 09:50:12 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admins.js?body=1" for 127.0.0.1 at 2013-03-06 09:50:12 -0500
+Served asset /admins.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/venues.js?body=1" for 127.0.0.1 at 2013-03-06 09:50:12 -0500
+Served asset /venues.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-03-06 09:50:12 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2013-03-06 09:50:25 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LFx7qFNYIT8ZJQi9SCrVBcE6r5qmtLfWisC7LYYlBtQ=", "user"=>{"email"=>"farhan5@gmail.com", "name"=>"sdasa", "timeStart"=>"11:00 AM", "timeEnd"=>"2:00 PM", "foodtype"=>"Foreign", "dist"=>"< 5 minutes away"}, "out"=>"Go Out"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('farhan5@gmail.com') LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("accepted", "created_at", "dist", "distance", "email", "end", "foodtype", "going_out", "group_id", "has_pref", "matched", "name", "start", "timeEnd", "timeStart", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["accepted", nil], ["created_at", Wed, 06 Mar 2013 14:50:25 UTC +00:00], ["dist", 10], ["distance", nil], ["email", "farhan5@gmail.com"], ["end", 200], ["foodtype", "foreign"], ["going_out", true], ["group_id", nil], ["has_pref", true], ["matched", nil], ["name", "sdasa"], ["start", 1100], ["timeEnd", "2:00 PM"], ["timeStart", "11:00 AM"], ["updated_at", Wed, 06 Mar 2013 14:50:25 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  Rendered user_mailer/confirmation.html.erb (0.1ms)
+
+Sent mail to farhan5@gmail.com (4442ms)
+Date: Wed, 06 Mar 2013 09:50:25 -0500
+From: cafvictual@gmail.com
+To: farhan5@gmail.com
+Message-ID: <513757b157da2_782a3fd9a498ab44428c5@Farhans-MacBook-Pro.local.mail>
+Subject: You just set a lunch with Victual matching
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<h5> Welcome to Victual sdasa </h5>
+<p>You will get another email around 10:30 giving you your group members and location </p>
+Redirected to http://localhost:3000/
+Completed 302 Found in 4462ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-03-06 09:50:29 -0500
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (1.6ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+Completed 200 OK in 9ms (Views: 8.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2013-03-06 09:50:29 -0500
+Served asset /admins.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2013-03-06 09:50:29 -0500
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2013-03-06 09:50:29 -0500
+Served asset /custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-03-06 09:50:29 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-03-06 09:50:29 -0500
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2013-03-06 09:50:29 -0500
+Served asset /bootstrap-responsive.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-03-06 09:50:29 -0500
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/venues.css?body=1" for 127.0.0.1 at 2013-03-06 09:50:29 -0500
+Served asset /venues.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-03-06 09:50:29 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-03-06 09:50:29 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2013-03-06 09:50:29 -0500
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admins.js?body=1" for 127.0.0.1 at 2013-03-06 09:50:29 -0500
+Served asset /admins.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-03-06 09:50:29 -0500
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-03-06 09:50:29 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/venues.js?body=1" for 127.0.0.1 at 2013-03-06 09:50:29 -0500
+Served asset /venues.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-03-06 09:50:30 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2013-03-06 09:50:49 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LFx7qFNYIT8ZJQi9SCrVBcE6r5qmtLfWisC7LYYlBtQ=", "user"=>{"email"=>"farha25@gmail.com", "name"=>"dasdsadasd", "timeStart"=>"1:30 PM", "timeEnd"=>"12:30 PM", "foodtype"=>"Foreign", "dist"=>"Any"}, "out"=>"Go Out"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('farha25@gmail.com') LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("accepted", "created_at", "dist", "distance", "email", "end", "foodtype", "going_out", "group_id", "has_pref", "matched", "name", "start", "timeEnd", "timeStart", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["accepted", nil], ["created_at", Wed, 06 Mar 2013 14:50:49 UTC +00:00], ["dist", 10], ["distance", nil], ["email", "farha25@gmail.com"], ["end", 1250], ["foodtype", "foreign"], ["going_out", true], ["group_id", nil], ["has_pref", true], ["matched", nil], ["name", "dasdsadasd"], ["start", 1500], ["timeEnd", "12:30 PM"], ["timeStart", "1:30 PM"], ["updated_at", Wed, 06 Mar 2013 14:50:49 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  Rendered user_mailer/confirmation.html.erb (0.1ms)
+
+Sent mail to farha25@gmail.com (5118ms)
+Date: Wed, 06 Mar 2013 09:50:49 -0500
+From: cafvictual@gmail.com
+To: farha25@gmail.com
+Message-ID: <513757c95497e_782a3fd9a4a853284299c@Farhans-MacBook-Pro.local.mail>
+Subject: You just set a lunch with Victual matching
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<h5> Welcome to Victual dasdsadasd </h5>
+<p>You will get another email around 10:30 giving you your group members and location </p>
+Redirected to http://localhost:3000/
+Completed 302 Found in 5130ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-03-06 09:50:54 -0500
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (2.1ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+Completed 200 OK in 11ms (Views: 11.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-03-06 09:50:54 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2013-03-06 09:50:54 -0500
+Served asset /bootstrap-responsive.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2013-03-06 09:50:54 -0500
+Served asset /custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2013-03-06 09:50:54 -0500
+Served asset /admins.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2013-03-06 09:50:54 -0500
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-03-06 09:50:54 -0500
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-03-06 09:50:54 -0500
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/venues.css?body=1" for 127.0.0.1 at 2013-03-06 09:50:54 -0500
+Served asset /venues.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-03-06 09:50:54 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-03-06 09:50:54 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2013-03-06 09:50:54 -0500
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admins.js?body=1" for 127.0.0.1 at 2013-03-06 09:50:54 -0500
+Served asset /admins.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/venues.js?body=1" for 127.0.0.1 at 2013-03-06 09:50:54 -0500
+Served asset /venues.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-03-06 09:50:54 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-03-06 09:50:54 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-03-06 09:50:54 -0500
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2013-03-06 09:52:13 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LFx7qFNYIT8ZJQi9SCrVBcE6r5qmtLfWisC7LYYlBtQ=", "user"=>{"email"=>"fan5@gmail.com", "name"=>"farhanss", "timeStart"=>"1:00 PM", "timeEnd"=>"1:30 PM", "foodtype"=>"Foreign", "dist"=>"< 5 minutes away"}, "out"=>"Go Out"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('fan5@gmail.com') LIMIT 1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "users" ("accepted", "created_at", "dist", "distance", "email", "end", "foodtype", "going_out", "group_id", "has_pref", "matched", "name", "start", "timeEnd", "timeStart", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["accepted", nil], ["created_at", Wed, 06 Mar 2013 14:52:13 UTC +00:00], ["dist", 10], ["distance", nil], ["email", "fan5@gmail.com"], ["end", 150], ["foodtype", "foreign"], ["going_out", true], ["group_id", nil], ["has_pref", true], ["matched", nil], ["name", "farhanss"], ["start", 1000], ["timeEnd", "1:30 PM"], ["timeStart", "1:00 PM"], ["updated_at", Wed, 06 Mar 2013 14:52:13 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  Rendered user_mailer/confirmation.html.erb (0.1ms)
+
+Sent mail to fan5@gmail.com (5290ms)
+Date: Wed, 06 Mar 2013 09:52:13 -0500
+From: cafvictual@gmail.com
+To: fan5@gmail.com
+Message-ID: <5137581d79cea_782a3fd9a4b810884306e@Farhans-MacBook-Pro.local.mail>
+Subject: You just set a lunch with Victual matching
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<h5> Welcome to Victual farhanss </h5>
+<p>You will get another email around 10:30 giving you your group members and location </p>
+Redirected to http://localhost:3000/
+Completed 302 Found in 5332ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-03-06 09:52:18 -0500
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (36.4ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+Completed 200 OK in 46ms (Views: 45.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-03-06 09:52:18 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2013-03-06 09:52:18 -0500
+Served asset /custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2013-03-06 09:52:18 -0500
+Served asset /admins.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2013-03-06 09:52:18 -0500
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2013-03-06 09:52:18 -0500
+Served asset /bootstrap-responsive.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-03-06 09:52:19 -0500
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-03-06 09:52:19 -0500
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/venues.css?body=1" for 127.0.0.1 at 2013-03-06 09:52:19 -0500
+Served asset /venues.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-03-06 09:52:19 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-03-06 09:52:19 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admins.js?body=1" for 127.0.0.1 at 2013-03-06 09:52:19 -0500
+Served asset /admins.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2013-03-06 09:52:19 -0500
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-03-06 09:52:19 -0500
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-03-06 09:52:19 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/venues.js?body=1" for 127.0.0.1 at 2013-03-06 09:52:19 -0500
+Served asset /venues.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-03-06 09:52:19 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2013-03-06 09:54:07 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LFx7qFNYIT8ZJQi9SCrVBcE6r5qmtLfWisC7LYYlBtQ=", "user"=>{"email"=>"fa25@gmail.com", "name"=>"dsadasd", "timeStart"=>"11:30 AM", "timeEnd"=>"2:30 PM", "foodtype"=>"Any", "dist"=>"Any"}, "out"=>"Go Out"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('fa25@gmail.com') LIMIT 1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "users" ("accepted", "created_at", "dist", "distance", "email", "end", "foodtype", "going_out", "group_id", "has_pref", "matched", "name", "start", "timeEnd", "timeStart", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["accepted", nil], ["created_at", Wed, 06 Mar 2013 14:54:07 UTC +00:00], ["dist", 10], ["distance", nil], ["email", "fa25@gmail.com"], ["end", 250], ["foodtype", "any"], ["going_out", true], ["group_id", nil], ["has_pref", true], ["matched", nil], ["name", "dsadasd"], ["start", 1150], ["timeEnd", "2:30 PM"], ["timeStart", "11:30 AM"], ["updated_at", Wed, 06 Mar 2013 14:54:07 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  Rendered user_mailer/confirmation.html.erb (0.1ms)
+
+Sent mail to fa25@gmail.com (4302ms)
+Date: Wed, 06 Mar 2013 09:54:07 -0500
+From: cafvictual@gmail.com
+To: fa25@gmail.com
+Message-ID: <5137588f11833_782a3fd9a49f7104431ce@Farhans-MacBook-Pro.local.mail>
+Subject: You just set a lunch with Victual matching
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<h5> Welcome to Victual dsadasd </h5>
+<p>You will get another email around 10:30 giving you your group members and location </p>
+Redirected to http://localhost:3000/
+Completed 302 Found in 4335ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-03-06 09:54:11 -0500
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (31.2ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+Completed 200 OK in 40ms (Views: 39.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2013-03-06 09:54:11 -0500
+Served asset /bootstrap-responsive.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2013-03-06 09:54:11 -0500
+Served asset /admins.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2013-03-06 09:54:11 -0500
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-03-06 09:54:11 -0500
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-03-06 09:54:11 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2013-03-06 09:54:11 -0500
+Served asset /custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-03-06 09:54:11 -0500
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/venues.css?body=1" for 127.0.0.1 at 2013-03-06 09:54:11 -0500
+Served asset /venues.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-03-06 09:54:11 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-03-06 09:54:11 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2013-03-06 09:54:11 -0500
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admins.js?body=1" for 127.0.0.1 at 2013-03-06 09:54:11 -0500
+Served asset /admins.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-03-06 09:54:11 -0500
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-03-06 09:54:11 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/venues.js?body=1" for 127.0.0.1 at 2013-03-06 09:54:11 -0500
+Served asset /venues.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-03-06 09:54:11 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2013-03-06 09:54:58 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LFx7qFNYIT8ZJQi9SCrVBcE6r5qmtLfWisC7LYYlBtQ=", "user"=>{"email"=>"sadasdas@g.g", "name"=>"asdasdasdasda", "timeStart"=>"11:30 AM", "timeEnd"=>"2:00 PM", "foodtype"=>"Any", "dist"=>"Any"}, "out"=>"Go Out"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('sadasdas@g.g') LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("accepted", "created_at", "dist", "distance", "email", "end", "foodtype", "going_out", "group_id", "has_pref", "matched", "name", "start", "timeEnd", "timeStart", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["accepted", nil], ["created_at", Wed, 06 Mar 2013 14:54:58 UTC +00:00], ["dist", 10], ["distance", nil], ["email", "sadasdas@g.g"], ["end", 200], ["foodtype", "any"], ["going_out", true], ["group_id", nil], ["has_pref", true], ["matched", nil], ["name", "asdasdasdasda"], ["start", 1150], ["timeEnd", "2:00 PM"], ["timeStart", "11:30 AM"], ["updated_at", Wed, 06 Mar 2013 14:54:58 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  Rendered user_mailer/confirmation.html.erb (0.1ms)
+
+Sent mail to sadasdas@g.g (3463ms)
+Date: Wed, 06 Mar 2013 09:54:58 -0500
+From: cafvictual@gmail.com
+To: sadasdas@g.g
+Message-ID: <513758c218c44_782a3fd9a651ac10432d6@Farhans-MacBook-Pro.local.mail>
+Subject: You just set a lunch with Victual matching
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<h5> Welcome to Victual asdasdasdasda </h5>
+<p>You will get another email around 10:30 giving you your group members and location </p>
+Redirected to http://localhost:3000/
+Completed 302 Found in 3493ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-03-06 09:55:01 -0500
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (2.7ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+Completed 200 OK in 43ms (Views: 42.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2013-03-06 09:55:01 -0500
+Served asset /admins.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2013-03-06 09:55:01 -0500
+Served asset /bootstrap-responsive.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2013-03-06 09:55:01 -0500
+Served asset /custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-03-06 09:55:01 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-03-06 09:55:01 -0500
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2013-03-06 09:55:01 -0500
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-03-06 09:55:01 -0500
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/venues.css?body=1" for 127.0.0.1 at 2013-03-06 09:55:01 -0500
+Served asset /venues.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-03-06 09:55:01 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-03-06 09:55:01 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2013-03-06 09:55:01 -0500
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admins.js?body=1" for 127.0.0.1 at 2013-03-06 09:55:01 -0500
+Served asset /admins.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-03-06 09:55:01 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-03-06 09:55:01 -0500
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-03-06 09:55:01 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/venues.js?body=1" for 127.0.0.1 at 2013-03-06 09:55:01 -0500
+Served asset /venues.js - 304 Not Modified (0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2013-03-06 09:56:02 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LFx7qFNYIT8ZJQi9SCrVBcE6r5qmtLfWisC7LYYlBtQ=", "user"=>{"email"=>"sdadsa@t.s", "name"=>"adsadasdasdasdasd", "timeStart"=>"1:00 PM", "timeEnd"=>"1:30 PM", "foodtype"=>"Any", "dist"=>"Any"}, "out"=>"Go Out"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('sdadsa@t.s') LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("accepted", "created_at", "dist", "distance", "email", "end", "foodtype", "going_out", "group_id", "has_pref", "matched", "name", "start", "timeEnd", "timeStart", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["accepted", nil], ["created_at", Wed, 06 Mar 2013 14:56:02 UTC +00:00], ["dist", 10], ["distance", nil], ["email", "sdadsa@t.s"], ["end", 150], ["foodtype", "any"], ["going_out", true], ["group_id", nil], ["has_pref", true], ["matched", nil], ["name", "adsadasdasdasdasd"], ["start", 1000], ["timeEnd", "1:30 PM"], ["timeStart", "1:00 PM"], ["updated_at", Wed, 06 Mar 2013 14:56:02 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  Rendered user_mailer/confirmation.html.erb (0.1ms)
+
+Sent mail to sdadsa@t.s (3791ms)
+Date: Wed, 06 Mar 2013 09:56:02 -0500
+From: cafvictual@gmail.com
+To: sdadsa@t.s
+Message-ID: <513759026acf6_782a3fd9a672fa8c4332e@Farhans-MacBook-Pro.local.mail>
+Subject: You just set a lunch with Victual matching
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<h5> Welcome to Victual adsadasdasdasdasd </h5>
+<p>You will get another email around 10:30 giving you your group members and location </p>
+Redirected to http://localhost:3000/
+Completed 302 Found in 3824ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-03-06 09:56:06 -0500
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+Completed 200 OK in 44ms (Views: 43.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-03-06 09:56:06 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2013-03-06 09:56:06 -0500
+Served asset /bootstrap-responsive.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2013-03-06 09:56:06 -0500
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2013-03-06 09:56:06 -0500
+Served asset /custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-03-06 09:56:06 -0500
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2013-03-06 09:56:06 -0500
+Served asset /admins.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-03-06 09:56:06 -0500
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/venues.css?body=1" for 127.0.0.1 at 2013-03-06 09:56:06 -0500
+Served asset /venues.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-03-06 09:56:06 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-03-06 09:56:06 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2013-03-06 09:56:06 -0500
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admins.js?body=1" for 127.0.0.1 at 2013-03-06 09:56:06 -0500
+Served asset /admins.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-03-06 09:56:06 -0500
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-03-06 09:56:06 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/venues.js?body=1" for 127.0.0.1 at 2013-03-06 09:56:06 -0500
+Served asset /venues.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-03-06 09:56:06 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2013-03-06 09:57:42 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LFx7qFNYIT8ZJQi9SCrVBcE6r5qmtLfWisC7LYYlBtQ=", "user"=>{"email"=>"fara@m.i", "name"=>"farsdasdsa", "timeStart"=>"1:00 PM", "timeEnd"=>"2:30 PM", "foodtype"=>"Any", "dist"=>"Any"}, "out"=>"Go Out"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('fara@m.i') LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("accepted", "created_at", "dist", "distance", "email", "end", "foodtype", "going_out", "group_id", "has_pref", "matched", "name", "start", "timeEnd", "timeStart", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["accepted", nil], ["created_at", Wed, 06 Mar 2013 14:57:42 UTC +00:00], ["dist", 10], ["distance", nil], ["email", "fara@m.i"], ["end", 2500], ["foodtype", "any"], ["going_out", true], ["group_id", nil], ["has_pref", true], ["matched", nil], ["name", "farsdasdsa"], ["start", 1000], ["timeEnd", "2:30 PM"], ["timeStart", "1:00 PM"], ["updated_at", Wed, 06 Mar 2013 14:57:42 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  Rendered user_mailer/confirmation.html.erb (0.1ms)
+
+Sent mail to fara@m.i (4272ms)
+Date: Wed, 06 Mar 2013 09:57:42 -0500
+From: cafvictual@gmail.com
+To: fara@m.i
+Message-ID: <513759664bf33_782a3fd9a65d3fd04346f@Farhans-MacBook-Pro.local.mail>
+Subject: You just set a lunch with Victual matching
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<h5> Welcome to Victual farsdasdsa </h5>
+<p>You will get another email around 10:30 giving you your group members and location </p>
+Redirected to http://localhost:3000/
+Completed 302 Found in 4303ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-03-06 09:57:46 -0500
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+Completed 200 OK in 11ms (Views: 10.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-03-06 09:57:46 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2013-03-06 09:57:46 -0500
+Served asset /bootstrap-responsive.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2013-03-06 09:57:46 -0500
+Served asset /admins.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2013-03-06 09:57:46 -0500
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2013-03-06 09:57:46 -0500
+Served asset /custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-03-06 09:57:46 -0500
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-03-06 09:57:46 -0500
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/venues.css?body=1" for 127.0.0.1 at 2013-03-06 09:57:46 -0500
+Served asset /venues.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-03-06 09:57:46 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-03-06 09:57:46 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2013-03-06 09:57:46 -0500
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admins.js?body=1" for 127.0.0.1 at 2013-03-06 09:57:46 -0500
+Served asset /admins.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-03-06 09:57:46 -0500
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/venues.js?body=1" for 127.0.0.1 at 2013-03-06 09:57:46 -0500
+Served asset /venues.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-03-06 09:57:46 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-03-06 09:57:46 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2013-03-06 10:04:47 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LFx7qFNYIT8ZJQi9SCrVBcE6r5qmtLfWisC7LYYlBtQ=", "user"=>{"email"=>"sadasdas@ga.r", "name"=>"sadsadasdasdasd", "timeStart"=>"11:30 AM", "timeEnd"=>"1:30 PM", "foodtype"=>"Any", "dist"=>"Any"}, "out"=>"Go Out"}
+Completed 500 Internal Server Error in 14ms
+
+TypeError (can't convert Fixnum into String):
+  app/controllers/users_controller.rb:38:in `+'
+  app/controllers/users_controller.rb:38:in `create'
+
+
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2013-03-06 10:06:44 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LFx7qFNYIT8ZJQi9SCrVBcE6r5qmtLfWisC7LYYlBtQ=", "user"=>{"email"=>"sadasdas@ga.r", "name"=>"sadsadasdasdasd", "timeStart"=>"11:30 AM", "timeEnd"=>"1:30 PM", "foodtype"=>"Any", "dist"=>"Any"}, "out"=>"Go Out"}
+Completed 500 Internal Server Error in 15ms
+
+TypeError (can't convert Fixnum into String):
+  app/controllers/users_controller.rb:38:in `+'
+  app/controllers/users_controller.rb:38:in `create'
+
+
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.8ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2013-03-06 10:06:49 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LFx7qFNYIT8ZJQi9SCrVBcE6r5qmtLfWisC7LYYlBtQ=", "user"=>{"email"=>"sadasdas@ga.r", "name"=>"sadsadasdasdasd", "timeStart"=>"11:30 AM", "timeEnd"=>"1:30 PM", "foodtype"=>"Any", "dist"=>"Any"}, "out"=>"Go Out"}
+Completed 500 Internal Server Error in 14ms
+
+TypeError (can't convert Fixnum into String):
+  app/controllers/users_controller.rb:38:in `+'
+  app/controllers/users_controller.rb:38:in `create'
+
+
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.8ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2013-03-06 10:08:27 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LFx7qFNYIT8ZJQi9SCrVBcE6r5qmtLfWisC7LYYlBtQ=", "user"=>{"email"=>"farhanm995@gmail.com", "name"=>"farhan", "timeStart"=>"11:00 AM", "timeEnd"=>"3:00 PM", "type"=>"Foreign", "dist"=>"< 5 minutes away"}, "out"=>"Go Out"}
+Completed 500 Internal Server Error in 2ms
+
+ActiveModel::MassAssignmentSecurity::Error (Can't mass-assign protected attributes: type):
+  app/controllers/users_controller.rb:7:in `new'
+  app/controllers/users_controller.rb:7:in `create'
+
+
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.3ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2013-03-06 10:08:31 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LFx7qFNYIT8ZJQi9SCrVBcE6r5qmtLfWisC7LYYlBtQ=", "user"=>{"email"=>"sadasdas@ga.r", "name"=>"sadsadasdasdasd", "timeStart"=>"11:30 AM", "timeEnd"=>"1:30 PM", "foodtype"=>"Any", "dist"=>"Any"}, "out"=>"Go Out"}
+Completed 500 Internal Server Error in 17ms
+
+TypeError (String can't be coerced into Fixnum):
+  app/controllers/users_controller.rb:46:in `+'
+  app/controllers/users_controller.rb:46:in `create'
+
+
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.8ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2013-03-06 10:08:53 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LFx7qFNYIT8ZJQi9SCrVBcE6r5qmtLfWisC7LYYlBtQ=", "user"=>{"email"=>"sadasdas@ga.r", "name"=>"sadsadasdasdasd", "timeStart"=>"11:30 AM", "timeEnd"=>"1:30 PM", "foodtype"=>"Any", "dist"=>"Any"}, "out"=>"Go Out"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('sadasdas@ga.r') LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("accepted", "created_at", "dist", "distance", "email", "end", "foodtype", "going_out", "group_id", "has_pref", "matched", "name", "start", "timeEnd", "timeStart", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["accepted", nil], ["created_at", Wed, 06 Mar 2013 15:08:53 UTC +00:00], ["dist", 10], ["distance", nil], ["email", "sadasdas@ga.r"], ["end", 1250], ["foodtype", "any"], ["going_out", true], ["group_id", nil], ["has_pref", true], ["matched", nil], ["name", "sadsadasdasdasd"], ["start", 1150], ["timeEnd", "1:30 PM"], ["timeStart", "11:30 AM"], ["updated_at", Wed, 06 Mar 2013 15:08:53 UTC +00:00]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  Rendered user_mailer/confirmation.html.erb (0.1ms)
+
+Sent mail to sadasdas@ga.r (5553ms)
+Date: Wed, 06 Mar 2013 10:08:54 -0500
+From: cafvictual@gmail.com
+To: sadasdas@ga.r
+Message-ID: <51375c067896_782a3fd9a4b9ab284354d@Farhans-MacBook-Pro.local.mail>
+Subject: You just set a lunch with Victual matching
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<h5> Welcome to Victual sadsadasdasdasd </h5>
+<p>You will get another email around 10:30 giving you your group members and location </p>
+Redirected to http://localhost:3000/
+Completed 302 Found in 5615ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-03-06 10:08:59 -0500
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (2.4ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+Completed 200 OK in 11ms (Views: 10.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-03-06 10:08:59 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2013-03-06 10:08:59 -0500
+Served asset /admins.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2013-03-06 10:08:59 -0500
+Served asset /bootstrap-responsive.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2013-03-06 10:08:59 -0500
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-03-06 10:08:59 -0500
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2013-03-06 10:08:59 -0500
+Served asset /custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/venues.css?body=1" for 127.0.0.1 at 2013-03-06 10:08:59 -0500
+Served asset /venues.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-03-06 10:08:59 -0500
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-03-06 10:08:59 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-03-06 10:08:59 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admins.js?body=1" for 127.0.0.1 at 2013-03-06 10:08:59 -0500
+Served asset /admins.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2013-03-06 10:08:59 -0500
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-03-06 10:08:59 -0500
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-03-06 10:08:59 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/venues.js?body=1" for 127.0.0.1 at 2013-03-06 10:08:59 -0500
+Served asset /venues.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-03-06 10:08:59 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2013-03-06 10:09:28 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LFx7qFNYIT8ZJQi9SCrVBcE6r5qmtLfWisC7LYYlBtQ=", "user"=>{"email"=>"farsn5@gmail.com", "name"=>"asdsad", "timeStart"=>"1:30 PM", "timeEnd"=>"1:00 PM", "foodtype"=>"Any", "dist"=>"Any"}, "out"=>"Go Out"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('farsn5@gmail.com') LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("accepted", "created_at", "dist", "distance", "email", "end", "foodtype", "going_out", "group_id", "has_pref", "matched", "name", "start", "timeEnd", "timeStart", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["accepted", nil], ["created_at", Wed, 06 Mar 2013 15:09:28 UTC +00:00], ["dist", 10], ["distance", nil], ["email", "farsn5@gmail.com"], ["end", 1300], ["foodtype", "any"], ["going_out", true], ["group_id", nil], ["has_pref", true], ["matched", nil], ["name", "asdsad"], ["start", 133], ["timeEnd", "1:00 PM"], ["timeStart", "1:30 PM"], ["updated_at", Wed, 06 Mar 2013 15:09:28 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  Rendered user_mailer/confirmation.html.erb (0.1ms)
+
+Sent mail to farsn5@gmail.com (3590ms)
+Date: Wed, 06 Mar 2013 10:09:28 -0500
+From: cafvictual@gmail.com
+To: farsn5@gmail.com
+Message-ID: <51375c28df417_782a3fd9a4bda0c04364d@Farhans-MacBook-Pro.local.mail>
+Subject: You just set a lunch with Victual matching
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<h5> Welcome to Victual asdsad </h5>
+<p>You will get another email around 10:30 giving you your group members and location </p>
+Redirected to http://localhost:3000/
+Completed 302 Found in 3652ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-03-06 10:09:32 -0500
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+Completed 200 OK in 10ms (Views: 9.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-03-06 10:09:32 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2013-03-06 10:09:32 -0500
+Served asset /admins.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2013-03-06 10:09:32 -0500
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2013-03-06 10:09:32 -0500
+Served asset /bootstrap-responsive.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-03-06 10:09:32 -0500
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2013-03-06 10:09:32 -0500
+Served asset /custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-03-06 10:09:32 -0500
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/venues.css?body=1" for 127.0.0.1 at 2013-03-06 10:09:32 -0500
+Served asset /venues.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-03-06 10:09:32 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-03-06 10:09:32 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2013-03-06 10:09:32 -0500
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admins.js?body=1" for 127.0.0.1 at 2013-03-06 10:09:32 -0500
+Served asset /admins.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-03-06 10:09:32 -0500
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-03-06 10:09:32 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/venues.js?body=1" for 127.0.0.1 at 2013-03-06 10:09:32 -0500
+Served asset /venues.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-03-06 10:09:32 -0500
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2013-03-06 10:10:36 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LFx7qFNYIT8ZJQi9SCrVBcE6r5qmtLfWisC7LYYlBtQ=", "user"=>{"email"=>"far@r.booo", "name"=>"asdsadasd", "timeStart"=>"1:30 PM", "timeEnd"=>"2:30 PM", "foodtype"=>"Any", "dist"=>"Any"}, "out"=>"Go Out"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('far@r.booo') LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "users" ("accepted", "created_at", "dist", "distance", "email", "end", "foodtype", "going_out", "group_id", "has_pref", "matched", "name", "start", "timeEnd", "timeStart", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["accepted", nil], ["created_at", Wed, 06 Mar 2013 15:10:36 UTC +00:00], ["dist", 10], ["distance", nil], ["email", "far@r.booo"], ["end", 1450], ["foodtype", "any"], ["going_out", true], ["group_id", nil], ["has_pref", true], ["matched", nil], ["name", "asdsadasd"], ["start", 133], ["timeEnd", "2:30 PM"], ["timeStart", "1:30 PM"], ["updated_at", Wed, 06 Mar 2013 15:10:36 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  Rendered user_mailer/confirmation.html.erb (0.1ms)
+
+Sent mail to far@r.booo (3896ms)
+Date: Wed, 06 Mar 2013 10:10:36 -0500
+From: cafvictual@gmail.com
+To: far@r.booo
+Message-ID: <51375c6c77080_782a3fd9a4ad78084374e@Farhans-MacBook-Pro.local.mail>
+Subject: You just set a lunch with Victual matching
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<h5> Welcome to Victual asdsadasd </h5>
+<p>You will get another email around 10:30 giving you your group members and location </p>
+Redirected to http://localhost:3000/
+Completed 302 Found in 3957ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-03-06 10:10:40 -0500
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (3.7ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+Completed 200 OK in 13ms (Views: 12.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-03-06 10:10:40 -0500
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2013-03-06 10:10:40 -0500
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2013-03-06 10:10:40 -0500
+Served asset /admins.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-03-06 10:10:40 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2013-03-06 10:10:40 -0500
+Served asset /bootstrap-responsive.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2013-03-06 10:10:40 -0500
+Served asset /custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-03-06 10:10:40 -0500
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/venues.css?body=1" for 127.0.0.1 at 2013-03-06 10:10:40 -0500
+Served asset /venues.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-03-06 10:10:40 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-03-06 10:10:40 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2013-03-06 10:10:40 -0500
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-03-06 10:10:40 -0500
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admins.js?body=1" for 127.0.0.1 at 2013-03-06 10:10:40 -0500
+Served asset /admins.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-03-06 10:10:40 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-03-06 10:10:40 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/venues.js?body=1" for 127.0.0.1 at 2013-03-06 10:10:40 -0500
+Served asset /venues.js - 304 Not Modified (0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2013-03-06 10:11:42 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LFx7qFNYIT8ZJQi9SCrVBcE6r5qmtLfWisC7LYYlBtQ=", "user"=>{"email"=>"farasdsad@it.ha", "name"=>"goober", "timeStart"=>"1:30 PM", "timeEnd"=>"2:30 PM", "foodtype"=>"Any", "dist"=>"Any"}, "out"=>"Go Out"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('farasdsad@it.ha') LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("accepted", "created_at", "dist", "distance", "email", "end", "foodtype", "going_out", "group_id", "has_pref", "matched", "name", "start", "timeEnd", "timeStart", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["accepted", nil], ["created_at", Wed, 06 Mar 2013 15:11:42 UTC +00:00], ["dist", 10], ["distance", nil], ["email", "farasdsad@it.ha"], ["end", 1450], ["foodtype", "any"], ["going_out", true], ["group_id", nil], ["has_pref", true], ["matched", nil], ["name", "goober"], ["start", 1350], ["timeEnd", "2:30 PM"], ["timeStart", "1:30 PM"], ["updated_at", Wed, 06 Mar 2013 15:11:42 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  Rendered user_mailer/confirmation.html.erb (0.1ms)
+
+Sent mail to farasdsad@it.ha (4110ms)
+Date: Wed, 06 Mar 2013 10:11:42 -0500
+From: cafvictual@gmail.com
+To: farasdsad@it.ha
+Message-ID: <51375cae7d07e_782a3fd9a4ad1c644387c@Farhans-MacBook-Pro.local.mail>
+Subject: You just set a lunch with Victual matching
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<h5> Welcome to Victual goober </h5>
+<p>You will get another email around 10:30 giving you your group members and location </p>
+Redirected to http://localhost:3000/
+Completed 302 Found in 4173ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-03-06 10:11:46 -0500
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+Completed 200 OK in 10ms (Views: 9.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-03-06 10:11:46 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2013-03-06 10:11:46 -0500
+Served asset /bootstrap-responsive.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2013-03-06 10:11:46 -0500
+Served asset /admins.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-03-06 10:11:46 -0500
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2013-03-06 10:11:46 -0500
+Served asset /custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2013-03-06 10:11:46 -0500
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-03-06 10:11:46 -0500
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/venues.css?body=1" for 127.0.0.1 at 2013-03-06 10:11:46 -0500
+Served asset /venues.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-03-06 10:11:46 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-03-06 10:11:46 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2013-03-06 10:11:46 -0500
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admins.js?body=1" for 127.0.0.1 at 2013-03-06 10:11:46 -0500
+Served asset /admins.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-03-06 10:11:46 -0500
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-03-06 10:11:46 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/venues.js?body=1" for 127.0.0.1 at 2013-03-06 10:11:46 -0500
+Served asset /venues.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-03-06 10:11:46 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+  [1m[36mSQL (3.7ms)[0m  [1mDELETE FROM "groups"[0m
+  [1m[35mSQL (1.1ms)[0m  DELETE FROM "users"
+Connecting to database specified by database.yml
+  [1m[36m (2.2ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.9ms)[0m  CREATE TABLE "admins" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.9ms)[0m  [1mCREATE TABLE "groups" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "venue_id" integer, "start" integer, "end" integer, "dist" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "foodtype" varchar(255), "going_out" boolean) [0m
+  [1m[35m (1.1ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255), "name" varchar(255), "matched" boolean, "distance" varchar(255), "timeStart" varchar(255), "timeEnd" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "going_out" boolean, "has_pref" boolean, "accepted" boolean, "group_id" integer, "start" integer, "end" integer, "dist" integer, "foodtype" varchar(255)) 
+  [1m[36m (0.9ms)[0m  [1mCREATE TABLE "venues" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "distance" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "foodtype" varchar(255), "distString" varchar(255)) [0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (0.7ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130305205829')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130304160415')
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130304195232')[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130304195551')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130304204950')[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130304211202')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130304211419')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130305154903')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130305185114')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130305195811')
+  [1m[36m (1.8ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+
+
+Started GET "/" for 127.0.0.1 at 2013-03-06 10:33:44 -0500
+Connecting to database specified by database.yml
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (5.1ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+Completed 200 OK in 111ms (Views: 79.2ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2013-03-06 10:33:45 -0500
+Served asset /bootstrap.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2013-03-06 10:33:45 -0500
+Served asset /custom.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2013-03-06 10:33:45 -0500
+Served asset /bootstrap-responsive.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2013-03-06 10:33:45 -0500
+Served asset /admins.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-03-06 10:33:45 -0500
+Served asset /application.css - 304 Not Modified (14ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-03-06 10:33:45 -0500
+Served asset /sessions.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-03-06 10:33:45 -0500
+Served asset /users.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/venues.css?body=1" for 127.0.0.1 at 2013-03-06 10:33:45 -0500
+Served asset /venues.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-03-06 10:33:45 -0500
+Served asset /jquery.js - 304 Not Modified (9ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-03-06 10:33:45 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/admins.js?body=1" for 127.0.0.1 at 2013-03-06 10:33:45 -0500
+Served asset /admins.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2013-03-06 10:33:45 -0500
+Served asset /bootstrap.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-03-06 10:33:45 -0500
+Served asset /sessions.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-03-06 10:33:45 -0500
+Served asset /users.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/venues.js?body=1" for 127.0.0.1 at 2013-03-06 10:33:45 -0500
+Served asset /venues.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-03-06 10:33:45 -0500
+Served asset /application.js - 304 Not Modified (7ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2013-03-06 10:33:58 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LFx7qFNYIT8ZJQi9SCrVBcE6r5qmtLfWisC7LYYlBtQ=", "user"=>{"email"=>"farhan@gmail.com", "name"=>"Foobar", "timeStart"=>"11:00 AM", "timeEnd"=>"1:30 PM", "foodtype"=>"Any", "dist"=>"Any"}, "out"=>"Go Out"}
+Completed 500 Internal Server Error in 3ms
+
+NameError (undefined local variable or method `temp' for #<UsersController:0x007fa6db158338>):
+  app/controllers/users_controller.rb:38:in `create'
+
+
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /Users/farhanmunshi/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.7ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2013-03-06 10:34:22 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LFx7qFNYIT8ZJQi9SCrVBcE6r5qmtLfWisC7LYYlBtQ=", "user"=>{"email"=>"farhan@gmail.com", "name"=>"Foobar", "timeStart"=>"11:00 AM", "timeEnd"=>"1:30 PM", "foodtype"=>"Any", "dist"=>"Any"}, "out"=>"Go Out"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('farhan@gmail.com') LIMIT 1
+  [1m[36mSQL (2.5ms)[0m  [1mINSERT INTO "users" ("accepted", "created_at", "dist", "distance", "email", "end", "foodtype", "going_out", "group_id", "has_pref", "matched", "name", "start", "timeEnd", "timeStart", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["accepted", nil], ["created_at", Wed, 06 Mar 2013 15:34:22 UTC +00:00], ["dist", 10], ["distance", nil], ["email", "farhan@gmail.com"], ["end", 1350], ["foodtype", "any"], ["going_out", true], ["group_id", nil], ["has_pref", true], ["matched", nil], ["name", "Foobar"], ["start", 1100], ["timeEnd", "1:30 PM"], ["timeStart", "11:00 AM"], ["updated_at", Wed, 06 Mar 2013 15:34:22 UTC +00:00]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  Rendered user_mailer/confirmation.html.erb (0.4ms)
+
+Sent mail to farhan@gmail.com (5609ms)
+Date: Wed, 06 Mar 2013 10:34:22 -0500
+From: cafvictual@gmail.com
+To: farhan@gmail.com
+Message-ID: <513761fe42480_789b3fd36cd3153872038@Farhans-MacBook-Pro.local.mail>
+Subject: You just set a lunch with Victual matching
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<h5> Welcome to Victual Foobar </h5>
+<p>You will get another email around 10:30 giving you your group members and location </p>
+Redirected to http://localhost:3000/
+Completed 302 Found in 5705ms (ActiveRecord: 4.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-03-06 10:34:27 -0500
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (2.4ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+Completed 200 OK in 11ms (Views: 10.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2013-03-06 10:34:27 -0500
+Served asset /bootstrap-responsive.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2013-03-06 10:34:27 -0500
+Served asset /admins.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2013-03-06 10:34:27 -0500
+Served asset /custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2013-03-06 10:34:27 -0500
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-03-06 10:34:28 -0500
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-03-06 10:34:28 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/venues.css?body=1" for 127.0.0.1 at 2013-03-06 10:34:28 -0500
+Served asset /venues.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-03-06 10:34:28 -0500
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-03-06 10:34:28 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2013-03-06 10:34:28 -0500
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-03-06 10:34:28 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admins.js?body=1" for 127.0.0.1 at 2013-03-06 10:34:28 -0500
+Served asset /admins.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-03-06 10:34:28 -0500
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-03-06 10:34:28 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/venues.js?body=1" for 127.0.0.1 at 2013-03-06 10:34:28 -0500
+Served asset /venues.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-03-06 10:34:28 -0500
+Served asset /application.js - 304 Not Modified (0ms)

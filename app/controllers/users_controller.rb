@@ -5,40 +5,43 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
-    puts '---- TYPE HERE ----'
-    puts params[:commit]
 
+    #Checks to see if the user wants to go out or has a packed lunch
     if params[:out] == 'Go Out'
          @user.going_out = true
     else
         @user.going_out = false
     end
-    if @user.type
+    if @user.foodtype
        @user.has_pref = true
     end
-    if !@user.timeStart.nil?
-      @user.has_pref = true
-      if @user.timeStart[1] == ':'
-        temp = @user.timeStart[0] + @user.timeStart[2] + '0'
-      else
-        temp = @user.timeStart[0..1] + @user.timeStart[3]
-      end
-      if temp[-1] == '3'
-        temp[-1] = '5'
-      end
-        temp = temp + '0'
-        @user.start = temp.to_f
 
-      if @user.timeEnd[1] == ':'
-        temp = @user.timeEnd[0] + @user.timeEnd[2]
+    #Procedure used to parse time
+    parseTime = lambda do |time, temp|
+      if time[1] == ':'
+        temp = time[0] +time[2]
+        temp = temp.to_i
+        temp = temp + 120
+        temp = temp.to_s
       else
-        temp = @user.timeEnd[0..1] + @user.timeEnd[3]
+        temp = time[0..1] + time[3]
       end
       if temp[-1] == '3'
         temp[-1] = '5'
       end
-        temp = temp + '0'
-        @user.end = temp.to_f
+      temp = temp + '0'
+      temp = temp.to_f
+      return temp
+    end
+
+    #If the user has preferences for start and end time
+    #This block calls parseTime on both the start and end time selected
+    if !@user.timeStart.nil? && !@user.timeEnd.nil?
+
+      @user.start = parseTime.call(@user.timeStart, @user.start)
+      @user.end = parseTime.call(@user.timeEnd, @user.end)
+      @user.has_pref = true
+
     end
 
     if @user.dist != 'Any'
