@@ -31,7 +31,7 @@ task :genusers, [:repeat, :going_out, :type, :dist, :timeS, :timeE] => [:environ
       puts "Success!"
     else
       puts "fail"
-      puts @user
+      puts @user.attributes
     end
   end
 end

@@ -31,13 +31,13 @@ task(:lunch => :environment) do
     prev = @users.length
   end
   # Users with time constraint, packed lunch
-  @users = User.where("has_pref = ? AND matched = ? AND going_out = ?", true, false, false)
+  @users = User.where("matched = ? AND going_out = ?", false, false)
   prev = 0;
   count = 0
   while @users and @users.length >= 1 and count < 20
     temp = []
     fill_given_group(@users[0].id, create_group(false).id, temp,true)
-    @users = User.where("has_pref = ? AND matched = ? AND going_out = ?", true, false, false)
+    @users = User.where("matched = ? AND going_out = ?", false, false)
     if prev == @users.length
       count+=1;
     end

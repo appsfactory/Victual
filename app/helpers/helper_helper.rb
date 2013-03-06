@@ -85,7 +85,7 @@ module HelperHelper
     @user = User.find(id)
     if @user.end > @group.start + 100 or @user.start < @group.end - 100
       # Gives half an hour for fast food or an hour for normal
-      if ((@user.start < @group.end - 50 or @user.end > @group.start + 50 and type == "fastfood") or user.start < @group.end - 100 or user.end > @group.start + 100)
+      if (((@user.start < @group.end - 50 or @user.end > @group.start + 50) and @user.foodtype == "fastfood") or @user.start < @group.end - 100 or @user.end > @group.start + 100)
 
         if @user.start > @group.start
           @group.start = @user.start

@@ -13,6 +13,7 @@
 <div class = "container">
 	<div class = "registerform">
 			<%= form_for(@user) do |f| %>
+             <%= render 'shared/error_messages' %>
 			<%= f.text_field :email, :placeholder => "Email" %>
 			<br>
 			<%= f.text_field :name, :placeholder => "Name"%>

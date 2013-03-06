@@ -1,21 +1,26 @@
 class UsersController < ApplicationController
+  
   def new
   	@user = User.new
   end
 
   def create
-    @user = User.new(params[:user])
+    @user = User.find_by_email(params[:user][:email])
+    if @user.nil?
+      @user = User.new(params[:user])
+    else
+      @user.update_attributes(params[:user])
+    end
 
+    @user.has_pref = false
     #Checks to see if the user wants to go out or has a packed lunch
     if params[:out] == 'Go Out'
          @user.going_out = true
     else
         @user.going_out = false
     end
-    if @user.foodtype != 'Any' or @user.timeStart == String or @user.distance == String
+    if @user.foodtype != 'Any'
        @user.has_pref = true
-    else
-      @user.has_pref = false
     end
     if @user.foodtype.nil? or @user.foodtype != String
       @user.foodtype = "any"
@@ -42,14 +47,17 @@ class UsersController < ApplicationController
 
     #If the user has preferences for start and end time
     #This block calls parseTime on both the start and end time selected
-    if !@user.timeStart.nil? && !@user.timeEnd.nil?
-
+    if !@user.timeStart.nil?
       @user.start = parseTime.call(@user.timeStart, @user.start)
+       @user.has_pref = true
+    else 
+      @user.start = 1100
+    end
+
+    if !@user.timeEnd.nil?
       @user.end = parseTime.call(@user.timeEnd, @user.end)
       @user.has_pref = true
-
     else
-      @user.start = 1100
       @user.end = 1500
     end
 
@@ -68,12 +76,28 @@ class UsersController < ApplicationController
 
     @user.matched = false
     @user.accepted = false
-
+    while User.where("token = ?", @user.token) and @user.token.nil?
+      @user.token = SecureRandom.urlsafe_base64
+    end 
+    # We're not saving, so this is fine
     if @user.save
       UserMailer.confirmation(@user).deliver
     	redirect_to '/'
     else
-    	redirect_to '/'
+    	render 'new'
+    end
+  end
+  def decline
+    @user = User.find_by_token(params[:token])
+    if @user
+      @user.accepted = false
+      # matched remains true, so user is not auto-reassigned
+      @user.group_id = nil
+      check_full
+      redistribute_all @user.going_out
+    else
+      render :nothing => true
+      # Later, become "error page"
     end
   end
 
