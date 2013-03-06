@@ -1,0 +1,5 @@
+<p>Hello <%= @user.name %> It looks like you've been matched!</p>
+
+<p>Click here to decline: <%= accept_user_url(@user.token) %></p>
+
+<p>Click here to decline: <%= decline_user_url(@user.token) %></p>
