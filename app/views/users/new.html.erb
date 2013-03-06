@@ -33,15 +33,15 @@
 								<%= f.select :timeStart, options_for_select(["Start Time","11:00 AM","11:30 AM", "12:00 PM","12:30 PM", "1:00 PM","1:30 PM", "2:00 PM"],
 									:disabled => ["Start Time"], :selected => ["Start Time"])%>
 							</span>
-			
+
 							<span class = "pull-right">
 								<%= f.select :timeEnd, options_for_select([ "End Time","12:00 PM","12:30 PM", "1:00 PM","1:30 PM", "2:00 PM","2:30 PM", "3:00 PM"],
 									:disabled => ["End Time"], :selected => ["End Time"])%>
 							</span>
 						<br>
 				<h5 style = "padding-bottom: 1px;">
-					<span class = "pull-left" style = "padding-left: 10px;">Food Type:</span>
-					<span class = "pull-right" style = "padding-right: 20px;">Distance:</span>
+					<span class = "pull-left">Food Type:</span>
+					<span class = "pull-right">Distance:</span>
 				</h5>
 				<br>
 				<table style = "width: 100%;">
@@ -54,11 +54,11 @@
 				</table>
 				</div>
 				<a href = '#' >
-					<h6 class = "text-center" onclick = "showAdv()"> 
+					<h6 class = "text-center" onclick = "showAdv()">
 						Advanced Options?
 					</h6>
 				</a>
-				
+
 			<% end %>
 	</div>
 

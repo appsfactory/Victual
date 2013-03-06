@@ -2,9 +2,20 @@ Victual::Application.routes.draw do
   get "users/new"
 
   resources :users
+  resources :admins
+  resources :sessions
+  resources :venues
 
   root                  to: 'users#new'
-  match "/test", to: "application#test"
+  match "/test",        to: "application#test"
+
+  #Admins
+  match '/admin',       to: 'sessions#new'
+  match '/logout',      to: 'sessions#destroy'
+  match '/add',         to: 'venues#new'
+  match '/venues',      to: 'venues#index'
+  match '/deleteVenue', to: 'venues#deleteVenue'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

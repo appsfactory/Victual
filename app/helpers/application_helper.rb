@@ -35,7 +35,7 @@ module ApplicationHelper
       match_by_time(id, group_id, users,true)
     end
   end
-  def match_by_time id, group_id, pool, going_out 
+  def match_by_time id, group_id, pool, going_out
     # Finds all with matching times from users with prefs.
     # Creates group of up to 4 (pref to distance match), sets matched to true
     # If going out, finds place
@@ -76,13 +76,13 @@ module ApplicationHelper
       users[0..3].each do |user|
         add_user_to_group user.id, @group.id
       end
-      
+
       users = User.where("matched = ? AND going_out = ?", false, going_out)
     end
     distribute_remaining going_out
   end
-  
-  
+
+
 
   ############################################
   #######   Setting up Group meeting   #######
@@ -102,9 +102,9 @@ module ApplicationHelper
       group.save
     end
   end
-  
 
-  def check_full 
+
+  def check_full
     # Checks if all groups are full. Redistributes those that aren't
     # Going out is not pertinent
     Group.all.each do |group|
@@ -154,5 +154,43 @@ module ApplicationHelper
       counter+=1 # Necessary if not enough groups to fill.
                  # Shouldn't be more than 3 left over users
     end
+  end
+
+  def add_user_to_group id, group_id
+    @group = Group.find(group_id)
+    @user = User.find(id)
+    if @user.end > @group.start + 100 or @user.start < @group.end - 100
+      # Gives half an hour for fast food or an hour for normal
+      if ((@user.start < @group.end - 50 or @user.end > @group.start + 50 and type = "fast") or user.start < @group.end - 100 or user.end > @group.start + 100)
+
+        if @user.start > @group.start
+          @group.start = @user.start
+        end
+        if @user.end < @group.end
+          @group.end = @user.end
+        end
+        if @group.type = "any" and @user.type != "any"
+          @group.type = @user.type
+        end
+        if @group.dist > @user.dist
+          @group.dist = @user.dist
+        end
+
+        @user.group_id = group_id
+        @user.matched = true
+        @user.save
+
+      end
+    end
+  end
+
+  def create_group
+    @group = Group.new
+    @group.type = "any"
+    @group.dist = 1000
+    @group.start = 1100
+    @group.end = 1500
+    @group.save
+    return @group
   end
 end
