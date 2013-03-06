@@ -24,7 +24,7 @@ group :development do
   gem 'sqlite3'
 end
 group :production do
-  gem 'rack-google_analytics', :require => "rack/google_analytics"
+  gem 'rack-google-analytics', :require => "rack/google_analytics"
   gem 'pg'
 end
 
