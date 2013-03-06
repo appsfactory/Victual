@@ -49,11 +49,30 @@ module HelperHelper
     # Gets a restaurant matching food type
     # Each type must have TWO OR MORE venues, or else an error will occur
     if type == "any"
-      venues = Venue.where("foodtype != 'fastfood'")
-      return venues[Random.rand(venues.length)]
+      venues = Venue.where("foodtype != ? AND distance < ?", 'fastfood' , dist)
+      if venues.length >= 1
+        return venues[Random.rand(venues.length)]
+      else
+        venues =  Venue.where("foodtype != ?", 'fastfood').order('distance asc')
+        puts "Could not find within distance " + dist.to_s
+        if venues[0]
+          return venues[0]
+        else
+          return Venue.all[Random.rand(Venue.all.length)]
+        end
+      end
     else
-      venues = Venue.find_by_foodtype type
-      return venues[Random.rand(venues.length)]
+      venues = Venue.where("foodtype = ? AND distance <= ?", type, dist)
+      if venues.length >= 1
+        return venues[Random.rand(venues.length)]
+      else
+        venues =  Venue.where("foodtype = ?", type).order('distance asc')
+        if venues[0]
+          return venues[0]
+        else
+          return Venue.all[Random.rand(Venue.all.length)]
+        end
+      end
     end
   end
 
@@ -76,7 +95,7 @@ module HelperHelper
         if @group.dist > @user.dist
           @group.dist = @user.dist
         end
-
+        @group.save
         @user.group_id = group_id
         @user.matched = true
         @user.save

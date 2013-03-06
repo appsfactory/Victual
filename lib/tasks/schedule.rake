@@ -23,7 +23,7 @@ task(:lunch => :environment) do
   count = 0
   while @users and @users.length >= 1 and count < 20
     temp = []
-    match_by_time(@users[0].id, create_group(true).id, temp,true)
+    fill_given_group(@users[0].id, create_group(true).id, temp,true)
     @users = User.where("has_pref = ? AND matched = ? AND foodtype = ? AND going_out = ?", true, false, "any", true)
     if prev == @users.length
       count+=1;
@@ -36,7 +36,7 @@ task(:lunch => :environment) do
   count = 0
   while @users and @users.length >= 1 and count < 20
     temp = []
-    match_by_time(@users[0].id, create_group(false).id, temp,true)
+    fill_given_group(@users[0].id, create_group(false).id, temp,true)
     @users = User.where("has_pref = ? AND matched = ? AND going_out = ?", true, false, false)
     if prev == @users.length
       count+=1;
