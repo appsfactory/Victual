@@ -43,7 +43,7 @@ Icon?
 ehthumbs.db
 Thumbs.db
 
-
+*/development.log
 db/schema.rb
 tmp/*
 
