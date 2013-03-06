@@ -28,8 +28,8 @@ module ApplicationHelper
     users = []
     @user = User.find id
     type = @user.foodtype
-    if User.where("foodtype = ? AND going_out = ? AND matched = ?", type, true, false)
-      users = (User.where("foodtype = ? AND going_out = ? AND matched = ?", type, true, false))
+    if User.where("foodtype = ? AND going_out = ? AND matched = ?", type, true, false).order('dist asc').limit(6)
+      users = (User.where("foodtype = ? AND going_out = ? AND matched = ?", type, true, false)).order('dist asc').limit(6)
     end
     if users.length >= 1
       fill_given_group(id, group_id, users,true)
@@ -43,7 +43,7 @@ module ApplicationHelper
       # There is a limited amount of users to select from
     else
       # Searches all users
-      pool = User.where("going_out = ? AND matched = ? AND has_pref = ?", going_out, false, true)
+      pool = User.where("going_out = ? AND matched = ? AND has_pref = ?", going_out, false, true).order('dist asc').limit(6)
     end
     pool.each do |user|
       if Group.find(group_id).users.length >= 4
@@ -65,7 +65,7 @@ module ApplicationHelper
     # Ignores prefs, if any
 
     fill_groups going_out
-    users = User.where("matched = ? AND going_out = ?", false, going_out)
+    users = User.where("matched = ? AND going_out = ?", false, going_out).order('dist asc').limit(6)
     
     while users.length >= 4
       @group = create_group going_out
@@ -73,7 +73,7 @@ module ApplicationHelper
         add_user_to_group user.id, @group.id
       end
 
-      users = User.where("matched = ? AND going_out = ?", false, going_out)
+      users = User.where("matched = ? AND going_out = ?", false, going_out).order('dist asc').limit(6)
     end
     distribute_remaining going_out
   end
@@ -120,7 +120,7 @@ module ApplicationHelper
     puts "-----------------------"
     puts "Redistributing these users: "
     # Redistributes all users in that category
-    users = User.where("matched = ? AND going_out = ?", false, going_out)
+    users = User.where("matched = ? AND going_out = ?", false, going_out).order('dist asc').limit(6)
     while users and users.length >= 4
       @group = create_group going_out
       filled = false
@@ -131,7 +131,7 @@ module ApplicationHelper
         else
           add_user_to_group user.id, @group.id
           puts user.attributes
-          users = User.where("matched = ? AND going_out = ?", false, going_out)
+          users = User.where("matched = ? AND going_out = ?", false, going_out).order('dist asc').limit(6)
         end
       end
     end
@@ -143,7 +143,7 @@ module ApplicationHelper
         if group.users.length < 6
           puts "Adding to: " + group.id.to_s
           add_user_to_group users[0].id, group.id
-          users = User.where("matched = ? AND going_out = ?", false, going_out)
+          users = User.where("matched = ? AND going_out = ?", false, going_out).order('dist asc').limit(6)
           if users[0].nil?
             break
           end

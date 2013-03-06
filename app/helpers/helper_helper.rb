@@ -3,14 +3,14 @@ module HelperHelper
   def fill_groups going_out
     # Find available groups
     # Doesn't match time (yet)
-    users = User.where("matched = ? AND going_out = ?", false, going_out)
+    users = User.where("matched = ? AND going_out = ?", false, going_out).order('dist asc').limit(6)
     groups = (Group.where("going_out = ?", going_out))
     if groups.any? and groups.length >= 1
       groups.each do |group|
         while group.users.length < 4 and users and users.length >= 1
           ## Possible Error when users is no longer array
           add_user_to_group(users[0].id, group.id)          
-          users = User.where("matched = ? AND going_out = ?", false, going_out)
+          users = User.where("matched = ? AND going_out = ?", false, going_out).order('dist asc').limit(6)
         end
       end
     end
@@ -18,7 +18,7 @@ module HelperHelper
   def distribute_remaining going_out
     # Find available groups
     # Doesn't match time (yet)
-    users = User.where("matched = ? AND going_out = ?", false, going_out)
+    users = User.where("matched = ? AND going_out = ?", false, going_out).order('dist asc').limit(6)
     while users and users.length >= 1 and users[0]
       full = true
       groups = Group.where("going_out = ?",going_out)
@@ -27,7 +27,7 @@ module HelperHelper
           if group.users.length < 6 and users[0]
             full = false
             add_user_to_group(users[0].id, group.id)
-            users = User.where("matched = ? AND going_out = ?", false, going_out)
+            users = User.where("matched = ? AND going_out = ?", false, going_out).order('dist asc').limit(6)
           end
         end
       else

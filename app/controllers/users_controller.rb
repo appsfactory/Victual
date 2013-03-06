@@ -12,9 +12,15 @@ class UsersController < ApplicationController
     else
         @user.going_out = false
     end
-    if @user.foodtype
+    if @user.foodtype != 'Any' or @user.timeStart == String or @user.distance == String
        @user.has_pref = true
+    else
+      @user.has_pref = false
     end
+    if @user.foodtype.nil? or @user.foodtype != String
+      @user.foodtype = "any"
+    end
+
 
     #Procedure used to parse time
     parseTime = lambda do |time, temp|
@@ -42,18 +48,21 @@ class UsersController < ApplicationController
       @user.end = parseTime.call(@user.timeEnd, @user.end)
       @user.has_pref = true
 
+    else
+      @user.start = 1100
+      @user.end = 1500
     end
 
-    if @user.dist != 'Any'
-      @user.has_pref = true
-      if @user.dist[2] == '5'
-        @user.dist = 5
-      else
-        @user.dist = 10
-      end
+    if @user.dist == 'Any'
+      @user.dist = 1000
+    elsif @user.dist == String
+      @user.dist = @user.dist.to_i
     else
-      @user.dist = 'any'
+      @user.dist = 1000
     end
+
+    @user.matched = false
+    @user.accepted = false
 
     if @user.save
       UserMailer.confirmation(@user).deliver
