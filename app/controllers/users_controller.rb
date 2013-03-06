@@ -53,12 +53,17 @@ class UsersController < ApplicationController
       @user.end = 1500
     end
 
-    if @user.dist == 'Any'
+    if @user.distance == 'Any'
+      puts "Dist = Any"
       @user.dist = 1000
-    elsif @user.dist == String
-      @user.dist = @user.dist.to_i
+    elsif @user.distance.class == String
+      puts "Converting dist to num"
+      @user.dist = @user.distance[/\d+/].to_i.to_i
     else
-      @user.dist = 1000
+      puts "Not a string"
+      puts @user.distance.class
+      puts @user.distance
+      @user.dist = 1001
     end
 
     @user.matched = false

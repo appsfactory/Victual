@@ -48,6 +48,10 @@ module HelperHelper
   def get_venue type, dist
     # Gets a restaurant matching food type
     # Each type must have TWO OR MORE venues, or else an error will occur
+    
+    if Venue.first.nil?
+      puts "No venues! Add some!"
+    end
     if type == "any"
       venues = Venue.where("foodtype != ? AND distance < ?", 'fastfood' , dist)
       if venues.length >= 1
@@ -81,7 +85,7 @@ module HelperHelper
     @user = User.find(id)
     if @user.end > @group.start + 100 or @user.start < @group.end - 100
       # Gives half an hour for fast food or an hour for normal
-      if ((@user.start < @group.end - 50 or @user.end > @group.start + 50 and type = "fast") or user.start < @group.end - 100 or user.end > @group.start + 100)
+      if ((@user.start < @group.end - 50 or @user.end > @group.start + 50 and type == "fastfood") or user.start < @group.end - 100 or user.end > @group.start + 100)
 
         if @user.start > @group.start
           @group.start = @user.start
@@ -89,7 +93,7 @@ module HelperHelper
         if @user.end < @group.end
           @group.end = @user.end
         end
-        if @group.foodtype = "any" and @user.foodtype != "any"
+        if @group.foodtype == "any" and @user.foodtype != "any"
           @group.foodtype = @user.foodtype
         end
         if @group.dist > @user.dist
