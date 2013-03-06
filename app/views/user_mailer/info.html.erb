@@ -1,4 +1,6 @@
 <p>Hello <%= @user.name %> It looks like you've been matched!</p>
+<% @group = @user.group %>
+<% render @group %>
 
 <p>Click here to decline: <%= accept_user_url(@user.token) %></p>
 
