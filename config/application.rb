@@ -8,6 +8,9 @@ if defined?(Bundler)
   # If you want your assets lazily compiled in production, use this line
   # Bundler.require(:default, :assets, Rails.env)
 end
+if Rails.env == "production"
+  config.middleware.use("Rack::GoogleAnalytics", :web_property_id => "UA-0000000-1")
+end
 
 module Victual
   class Application < Rails::Application
