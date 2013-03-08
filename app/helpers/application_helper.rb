@@ -32,10 +32,10 @@ module ApplicationHelper
       users = (User.where("foodtype = ? AND going_out = ? AND matched = ?", type, true, false)).order('dist asc').limit(6)
     end
     if users.length >= 1
-      fill_given_group(id, group_id, users,true)
+      fill_given_group(group_id, users,true)
     end
   end
-  def fill_given_group id, group_id, pool, going_out
+  def fill_given_group group_id, pool, going_out
     # Finds all with matching times from users with prefs.
     # Creates group of up to 4 (pref to distance match), sets matched to true
     # If going out, finds place
@@ -64,7 +64,9 @@ module ApplicationHelper
     # Puts remaining users in groups of 4, then distributes remainder (max 3)
     # Ignores prefs, if any
 
+    puts "fill_groups"
     fill_groups going_out
+    puts "match_remainder"
     users = User.where("matched = ? AND going_out = ?", false, going_out).order('dist asc').limit(6)
     
     while users.length >= 4
@@ -75,6 +77,7 @@ module ApplicationHelper
 
       users = User.where("matched = ? AND going_out = ?", false, going_out).order('dist asc').limit(6)
     end
+    puts "Distribute remainder"
     distribute_remaining going_out
   end
 

@@ -6,6 +6,7 @@ class UserMailer < ActionMailer::Base
   end
 
   def info(user)
+  	@user = user
   	mail(to: user.email, subject: 'You Have Been Matched')
   end
 end

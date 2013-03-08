@@ -100,5 +100,20 @@ class UsersController < ApplicationController
       # Later, become "error page"
     end
   end
-
+  def accept
+    @user = User.find_by_token(params[:token])
+    if @user
+      @user.accepted = true
+    end
+    # and everyone was happy
+  end
+  def join_group
+    @user = User.find_by_token(params[:token])
+    if @user
+      add_user_to_group(@user.id, params[:group_id])
+      redirect_to "/accept?token="+@user.token
+    else
+      render nothing: true
+    end
+  end
 end
