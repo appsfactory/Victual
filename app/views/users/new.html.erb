@@ -3,9 +3,13 @@
 
 		if(document.getElementById("advanced").style.display=="none"){
 		$('#advanced').slideDown();
+
+			document.getElementById('options').innerHTML = "Hide Options";
+
 		}
 		else {
 			$('#advanced').slideUp();
+			document.getElementById('options').innerHTML = "Advanced Options";
 		}
 	}
 </script>
@@ -54,7 +58,7 @@
 				</table>
 				</div>
 				<a href = '#' >
-					<h6 class = "text-center" onclick = "showAdv()">
+					<h6 class = "text-center" id = "options" onclick = "showAdv()">
 						Advanced Options?
 					</h6>
 				</a>

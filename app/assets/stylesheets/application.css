@@ -24,7 +24,7 @@
 	width: 275px;
 }
 
-.header-container { 
+.header-container {
 	height: 60px;
 	margin-bottom: 25px;
 	min-height: 50px;
@@ -52,6 +52,10 @@
 	background-color: #FFF;
 	height: 20px;
 	margin: 0px;
-	
 
+
+}
+
+#options {
+-webkit-transition: -webkit-transform 3s ease-in
 }
