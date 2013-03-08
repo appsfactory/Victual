@@ -9,7 +9,12 @@ module HelperHelper
       groups.each do |group|
         while group.users.length < 4 and users and users.length >= 1
           ## Possible Error when users is no longer array
-          add_user_to_group(users[0].id, group.id)          
+          puts group.users.length
+          puts User.where("group_id = ?", group.id)
+          puts group.attributes
+          puts group.users
+          add_user_to_group(users[0].id, group.id)    
+          puts users[0].group      
           users = User.where("matched = ? AND going_out = ?", false, going_out).order('dist asc').limit(6)
         end
       end
@@ -17,7 +22,6 @@ module HelperHelper
   end
   def distribute_remaining going_out
     # Find available groups
-    # Doesn't match time (yet)
     users = User.where("matched = ? AND going_out = ?", false, going_out).order('dist asc').limit(6)
     while users and users.length >= 1 and users[0]
       full = true
@@ -33,10 +37,11 @@ module HelperHelper
       else
         @group = create_group going_out
         users.each do |user|
-          add_user_to_group user.id, @group.id
           if @group.users.length >= 4
             break
           end
+          add_user_to_group user.id, @group.id
+          
         end
         break
       end
@@ -86,6 +91,7 @@ module HelperHelper
     if @user.end > @group.start + 100 or @user.start < @group.end - 100
       # Gives half an hour for fast food or an hour for normal
       if (((@user.start < @group.end - 50 or @user.end > @group.start + 50) and @user.foodtype == "fastfood") or @user.start < @group.end - 100 or @user.end > @group.start + 100)
+        puts "Adding user " + @user.name + " to " + @group.id.to_s
 
         if @user.start > @group.start
           @group.start = @user.start

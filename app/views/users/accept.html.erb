@@ -1,0 +1,4 @@
+<p>Thank you <%= @user.name %>. You've accepted your lunch invitation</p>
+<p> Again, here's your group information. Don't forget to show up! <p>
+<% @group = @user.group %>
+<%= render @group %>

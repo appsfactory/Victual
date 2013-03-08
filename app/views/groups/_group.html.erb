@@ -1,9 +1,9 @@
 <script>
-	function joinGroup(id){
-		window.location = '/join/?id=' + id
+	function joinGroup(token, groupid){
+		window.location = '/join/?token=' + token + "&group_id=" + groupid
 	}
 </script>
-<a onclick = 'joinGroup(<%= group.id %>)' class="plain">
+<a onclick = 'joinGroup("<%= @user.token %>",<%= group.id %>)' class="plain">
 <span style = "width: 100px;">
   <% group.users.each do |user| %>
     <%= user.name %>
