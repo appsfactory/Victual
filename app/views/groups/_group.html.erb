@@ -1,0 +1,29 @@
+<script>
+	function joinGroup(id){
+		window.location = '/join/?id=' + id
+	}
+</script>
+<a onclick = 'joinGroup(<%= group.id %>)' class="plain">
+<span style = "width: 100px;">
+  <% group.users.each do |user| %>
+    <%= user.name %>
+  <% end %>
+</span>
+<br>
+<span style = "width: 100px;">
+  Meets at <%= group.start %>
+<br>
+  Gets back by <%= group.end %> at the latest
+</span>
+<br>
+<span style = "width: 100px;">
+  <% if group.venue %>
+    <%= group.venue.name %>
+  <% else %>
+    Eating here
+  <% end %>
+</a>
+</span>
+<br>
+
+

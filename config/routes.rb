@@ -16,6 +16,9 @@ Victual::Application.routes.draw do
   match '/venues',      to: 'venues#index'
   match '/deleteVenue', to: 'venues#deleteVenue'
 
+  # Users
+  match '/decline',     to: 'users#decline'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
