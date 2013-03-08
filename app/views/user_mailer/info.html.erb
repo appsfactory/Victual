@@ -2,6 +2,6 @@
 <% @group = @user.group %>
 <% render @group %>
 
-<p>Click here to decline: <%= accept_user_url(@user.token) %></p>
-
-<p>Click here to decline: <%= decline_user_url(@user.token) %></p>
+<a href = <%= accept_user_url(@user.token) %> class = "btn"> Click here to Accept</a>
+<br>
+<a href = <%= decline_user_url(@user.token) %> class = "btn"> Click here to Decline</a>
