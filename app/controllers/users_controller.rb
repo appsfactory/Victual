@@ -8,7 +8,9 @@ class UsersController < ApplicationController
     @user = User.find_by_email(params[:user][:email])
     if @user.nil?
       @user = User.new(params[:user])
+      flashmessage = "Thanks for signing up for lunch, " + @user.name + ". You'll notified with your group information at " + @user.email + "."
     else
+      flashmessage = "Your submission has been updated"
       @user.update_attributes(params[:user])
     end
 
@@ -81,6 +83,7 @@ class UsersController < ApplicationController
     end 
     # We're not saving, so this is fine
     if @user.save
+      flash.alert = flashmessage
       UserMailer.confirmation(@user).deliver
     	redirect_to '/'
     else

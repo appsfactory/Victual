@@ -1,0 +1,7 @@
+<p>Hello <%= @user.name %>. We're sorry, but we could not find you an appropriate lunch group
+Click the link below to see a list of available groups, then click on one to join</p>
+<p><%= decline_url() + "?token=" + @user.token%></p>
+<p>
+Don't worry if there are no more available groups. If you wait a bit longer, you may be matched up with latecomers.
+Thank you for your patience
+</p>

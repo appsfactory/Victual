@@ -1,6 +1,6 @@
 <% groups = [] %>
 <% Group.where("going_out = ?", @user.going_out).each do |group| %>
-  <% if group.users.length < 6 %>   
+  <% if group.users.length < 8 %>  
     <% groups.push(group) %>
   <% end %>
 <% end %>

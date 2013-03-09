@@ -9,4 +9,9 @@ class UserMailer < ActionMailer::Base
   	@user = user
   	mail(to: user.email, subject: 'You Have Been Matched')
   end
+
+  def apology(user)
+  	@user = user
+  	mail(to: user.email, subject: 'Sorry, You have not Been Matched')
+  end
 end

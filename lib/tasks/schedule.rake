@@ -64,3 +64,12 @@ task(:lunch => :environment) do
     UserMailer.info(user).deliver
   end
 end
+task :leftovers => :environment do
+  # Run at 11
+  @users = User.where("matched = ?", false)
+  if @users[0]
+    @users.each do |user|
+      UserMailer.apology(user).deliver
+    end
+  end
+end
