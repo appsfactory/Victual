@@ -7,13 +7,14 @@
 <span style = "width: 100px;">
   <% group.users.each do |user| %>
     <%= user.name %>
+    <br>
   <% end %>
 </span>
 <br>
 <span style = "width: 100px;">
-  Meets at <%= group.start %>
+  Meeting Time is <%= group.start %>
 <br>
-  Gets back by <%= group.end %> at the latest
+  Get back by <%= group.end %> at the latest
 </span>
 <br>
 <span style = "width: 100px;">
