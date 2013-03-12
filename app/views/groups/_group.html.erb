@@ -1,0 +1,30 @@
+<script>
+	function joinGroup(token, groupid){
+		window.location = '/join/?token=' + token + "&group_id=" + groupid
+	}
+</script>
+<a onclick = 'joinGroup("<%= @user.token %>",<%= group.id %>)' class="plain">
+<span style = "width: 100px;">
+  <% group.users.each do |user| %>
+    <%= user.name %>
+    <br>
+  <% end %>
+</span>
+<br>
+<span style = "width: 100px;">
+  Meeting Time is <%= group.start %>
+<br>
+  Get back by <%= group.end %> at the latest
+</span>
+<br>
+<span style = "width: 100px;">
+  <% if group.venue %>
+    <%= group.venue.name %>
+  <% else %>
+    Eating here
+  <% end %>
+</a>
+</span>
+<br>
+
+

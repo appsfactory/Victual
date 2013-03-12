@@ -1,4 +1,27 @@
 Victual::Application.routes.draw do
+  get "users/new"
+
+  resources :users
+  resources :admins
+  resources :sessions
+  resources :venues
+
+  root                  to: 'users#new'
+  match "/test",        to: "application#test"
+
+  #Admins
+  match '/admin',       to: 'sessions#new'
+  match '/logout',      to: 'sessions#destroy'
+  match '/add',         to: 'venues#new'
+  match '/venues',      to: 'venues#index'
+  match '/deleteVenue', to: 'venues#deleteVenue'
+
+  # Users
+  match '/decline',     to: 'users#decline', as: "decline"
+  match '/accept',      to: 'users#accept', as: "accept"
+  match '/join',        to: 'users#join_group'
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

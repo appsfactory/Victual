@@ -1,0 +1,9 @@
+<p>Hello <%= @user.name %>. It looks like you've been matched!</p>
+<% @group = @user.group %>
+<%= render @group %>
+
+
+<a href = <%= accept_url() + "?token=" + @user.token  %> class = "btn"> Click here to Accept</a>
+<br>
+<a href = <%= decline_url() + "?token=" + @user.token %> class = "btn"> Click here to Decline</a>
+

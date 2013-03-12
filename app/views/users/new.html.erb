@@ -1,0 +1,70 @@
+<script type="text/javascript">
+	function showAdv() {
+
+		if(document.getElementById("advanced").style.display=="none"){
+		$('#advanced').slideDown();
+
+			document.getElementById('options').innerHTML = "Hide Options";
+
+		}
+		else {
+			$('#advanced').slideUp();
+			document.getElementById('options').innerHTML = "Advanced Options";
+		}
+	}
+</script>
+
+<div class = "container">
+	<div class = "registerform">
+			<%= form_for(@user) do |f| %>
+             <%= render 'shared/error_messages' %>
+			<%= f.text_field :email, :placeholder => "Email" %>
+			<br>
+			<%= f.text_field :name, :placeholder => "Name"%>
+			<br>
+
+			<table style = "width: 500px;">
+				<td>
+					<%= f.submit "Packed Lunch", class: "btn btn-danger pull-left", :name => 'packed', style: "width: 120px"  %>
+				</td>
+				<td class = "pull-right">
+					<%= f.submit "Go Out", class: "btn btn-danger pull-right", :name => 'out', style: "width: 120px" %>
+				</td>
+			</table>
+			<div id = "advanced" style = "display:none; padding-bottom: 30px;">
+					<h5 style = "padding-bottom: 1px;">Time Constraints:</h5>
+
+							<span class = "pull-left">
+								<%= f.select :timeStart, options_for_select(["Start Time","11:00 AM","11:30 AM", "12:00 PM","12:30 PM", "1:00 PM","1:30 PM", "2:00 PM"],
+									:disabled => ["Start Time"], :selected => ["Start Time"])%>
+							</span>
+
+							<span class = "pull-right">
+								<%= f.select :timeEnd, options_for_select([ "End Time","12:00 PM","12:30 PM", "1:00 PM","1:30 PM", "2:00 PM","2:30 PM", "3:00 PM"],
+									:disabled => ["End Time"], :selected => ["End Time"])%>
+							</span>
+						<br>
+				<h5 style = "padding-bottom: 1px;">
+					<span class = "pull-left">Food Type:</span>
+					<span class = "pull-right">Distance:</span>
+				</h5>
+				<br>
+				<table style = "width: 100%;">
+					<td class = "pull-left">
+									<%= f.select :foodtype, options_for_select(["Any", "Standard", "Foreign", "FastFood"], :selected => ["Any"])%>
+					</td>
+					<td class = "pull-right">
+									<%= f.select :distance, options_for_select(["Any", "< 5 minutes away", "< 10 minutes away"], :selected => ["Any"])%>
+					</td>
+				</table>
+				</div>
+				<a href = '#' >
+					<h6 class = "text-center" id = "options" onclick = "showAdv()">
+						Advanced Options?
+					</h6>
+				</a>
+
+			<% end %>
+	</div>
+
+</div>

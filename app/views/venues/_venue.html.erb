@@ -1,0 +1,19 @@
+<script>
+	function deleteVenue(id){
+		window.location = '/deleteVenue/?id=' + id
+	}
+</script>
+
+<span style = "width: 100px;">
+	<%= venue.name %>
+</span>
+<span style = "width: 100px;">
+	<%= venue.distString %>
+</span>
+<span style = "width: 100px;">
+	<%= venue.foodtype %>
+<a onclick = 'deleteVenue(<%= venue.id %>)'>Delete</a>
+</span>
+<br>
+
+

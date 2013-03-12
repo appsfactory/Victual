@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  email: MyString
+  name: MyString
+  matched: false
+  type: 
+  distance: MyString
+  timeStart: MyString
+  timeEnd: MyString
+
+two:
+  email: MyString
+  name: MyString
+  matched: false
+  type: 
+  distance: MyString
+  timeStart: MyString
+  timeEnd: MyString
