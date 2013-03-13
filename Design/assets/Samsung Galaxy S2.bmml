@@ -1,0 +1,43 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="514" measuredH="589" mockupW="281" mockupH="543">
+  <controls>
+    <control controlID="18" controlTypeID="__group__" x="233" y="46" w="281" h="543" measuredW="281" measuredH="543" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <controlName>Samsung%20Galaxy%20S2</controlName>
+      </controlProperties>
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::Canvas" x="0" y="0" w="281" h="543" measuredW="100" measuredH="70" zOrder="0" locked="false" isInGroup="18">
+          <controlProperties>
+            <backgroundAlpha>1</backgroundAlpha>
+            <borderColor>6710886</borderColor>
+            <borderStyle>roundedSolid</borderStyle>
+            <color>0</color>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::Canvas" x="14" y="24" w="254" h="504" measuredW="100" measuredH="70" zOrder="1" locked="false" isInGroup="18">
+          <controlProperties>
+            <color>16777215</color>
+          </controlProperties>
+        </control>
+        <control controlID="8" controlTypeID="com.balsamiq.mockups::Label" x="211" y="63" w="55" h="20" measuredW="48" measuredH="18" zOrder="2" locked="false" isInGroup="18">
+          <controlProperties>
+            <color>16777215</color>
+            <size>11</size>
+            <text>8%3A30%20PM</text>
+          </controlProperties>
+        </control>
+        <control controlID="9" controlTypeID="com.balsamiq.mockups::Icon" x="141" y="65" w="-1" h="-1" measuredW="16" measuredH="16" zOrder="3" locked="false" isInGroup="18">
+          <controlProperties>
+            <color>16777215</color>
+            <icon>ThreeGIcon%7Cxsmall</icon>
+          </controlProperties>
+        </control>
+        <control controlID="10" controlTypeID="com.balsamiq.mockups::Icon" x="164" y="65" w="-1" h="-1" measuredW="16" measuredH="16" zOrder="4" locked="false" isInGroup="18">
+          <controlProperties>
+            <color>16777215</color>
+            <icon>CellBarsIcon%7Cxsmall</icon>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+  </controls>
+</mockup>
