@@ -20,13 +20,20 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 end
-group :development do
+
+group :development, :test do
   gem 'sqlite3'
+  gem 'factory_girl_rails'
+  gem 'rspec-rails', '2.11.0'
+  gem 'capybara', '1.1.2'
+  gem 'populator'
+  gem 'faker'
 end
 group :production do
   gem 'rack-google-analytics', :require => 'rack/google-analytics'
   gem 'pg'
 end
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

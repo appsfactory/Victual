@@ -18,8 +18,10 @@
 	<div class = "registerform">
 			<%= form_for(@user) do |f| %>
              <%= render 'shared/error_messages' %>
-			<%= f.text_field :email, :placeholder => "Email" %>
+      <%= f.label :email, 'Email', style: "display:none;"%>
+			<%= f.text_field :email, :placeholder => "Email"%>
 			<br>
+			<%= f.label :name, 'Name', style: "display:none;"%>
 			<%= f.text_field :name, :placeholder => "Name"%>
 			<br>
 

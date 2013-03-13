@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  include ActiveModel::Validations
  	attr_accessible :distance, :email, :matched, :name, :timeEnd, :timeStart, :foodtype, :going_out,
  	:has_pref, :accepted, :group_id, :start, :end, :dist
 
@@ -11,15 +12,6 @@ class User < ActiveRecord::Base
 	validates :email, :presence => {:message => "Email can't be blank"},
 	format: { with: VALID_EMAIL_REGEX, :message => "Invalid Email" },
 	uniqueness: {:message => "Email already taken", case_sensitive: false }
-  validate :times_work?
-
-  def times_work?
-    if start > self.end
-      errors.add(:start, 'time must be before end')
-      return false
-    end
-    return true
-  end
 
 	before_save { self.email.downcase! }
 	before_save { self.foodtype.downcase! }

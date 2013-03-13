@@ -61,7 +61,7 @@ task(:lunch => :environment) do
 
   users = User.where("matched = ?", true)
   users.each do |user|
-    UserMailer.info(user).deliver
+  UserMailer.info(user).deliver
   end
 end
 task :leftovers => :environment do

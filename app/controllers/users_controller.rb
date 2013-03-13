@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  
+
   def new
   	@user = User.new
   end
@@ -52,7 +52,7 @@ class UsersController < ApplicationController
     if !@user.timeStart.nil?
       @user.start = parseTime.call(@user.timeStart, @user.start)
        @user.has_pref = true
-    else 
+    else
       @user.start = 1100
     end
 
@@ -80,7 +80,7 @@ class UsersController < ApplicationController
     @user.accepted = false
     while User.where("token = ?", @user.token) and @user.token.nil?
       @user.token = SecureRandom.urlsafe_base64
-    end 
+    end
     # We're not saving, so this is fine
     if @user.save
       flash.alert = flashmessage
@@ -119,4 +119,5 @@ class UsersController < ApplicationController
       render nothing: true
     end
   end
+
 end
