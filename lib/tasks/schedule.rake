@@ -1,4 +1,11 @@
 task(:lunch => :environment) do
+  # Run at 10:30
+  if Phase.first.nil?
+    @phase = Phase.new()
+    @phase.save
+  end
+  Phase.first.current = "late"
+  Phase.first.save
   require 'application_controller'
   require 'application_helper'
   include ApplicationHelper
@@ -61,11 +68,12 @@ task(:lunch => :environment) do
 
   users = User.where("matched = ?", true)
   users.each do |user|
-  UserMailer.info(user).deliver
+    UserMailer.info(user).deliver
+    if user.group.notified = false
+      user.group.notified = true
+      user.group.save
+    end
   end
-end
-task :leftovers => :environment do
-  # Run at 11
   @users = User.where("matched = ?", false)
   if @users[0]
     @users.each do |user|

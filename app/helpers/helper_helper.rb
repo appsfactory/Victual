@@ -86,31 +86,55 @@ module HelperHelper
   end
 
   def add_user_to_group id, group_id
+    # Add mail stuff here. If group.notified == true, send update on new member.
     @group = Group.find(group_id)
     @user = User.find(id)
-    if @user.end > @group.start + 100 or @user.start < @group.end - 100
-      # Gives half an hour for fast food or an hour for normal
-      if (((@user.start < @group.end - 50 or @user.end > @group.start + 50) and @user.foodtype == "fastfood") or @user.start < @group.end - 100 or @user.end > @group.start + 100)
-        puts "Adding user " + @user.name + " to " + @group.id.to_s
+    # Gives half an hour for fast food and packed lunch or an hour for normal
+    if (((@user.start < @group.end - 50 or @user.end > @group.start + 50) and (@user.foodtype == "fastfood" or @user.going_out == false)) or 
+        @user.start < @group.end - 100 or @user.end > @group.start + 100)
+      puts "Adding user " + @user.name + " to " + @group.id.to_s
 
-        if @user.start > @group.start
-          @group.start = @user.start
+      if @user.start > @group.start
+        @group.start = @user.start
+      end
+      if @user.end < @group.end
+        @group.end = @user.end
+      end
+      if @group.foodtype == "any" and @user.foodtype != "any"
+        @group.foodtype = @user.foodtype
+      end
+      if @group.dist > @user.dist
+        @group.dist = @user.dist
+      end
+      @group.save
+      if @group.notified == true
+        @group.users.each do |user|
+          UserMailer.adduser(user, @user).deliver
         end
-        if @user.end < @group.end
-          @group.end = @user.end
-        end
-        if @group.foodtype == "any" and @user.foodtype != "any"
-          @group.foodtype = @user.foodtype
-        end
-        if @group.dist > @user.dist
-          @group.dist = @user.dist
-        end
-        @group.save
-        @user.group_id = group_id
-        @user.matched = true
-        @user.save
-        end
+        # Send notifying mail. Notifies all users in group (the new one hasn't been added yet)
+      end
+      @user.group_id = group_id
+      @user.matched = true
+      @user.save
     end
+  end
+  def add_user_to_group_nocheck id, group_id
+    # This is for joining an existing group.
+    @group = Group.find(group_id)
+    @user = User.find(id)
+    
+    puts "Adding user " + @user.name + " to " + @group.id.to_s
+
+    @group.save
+    if @group.notified == true
+      @group.users.each do |user|
+        UserMailer.adduser(user, @user).deliver
+      end
+      # Send notifying mail. Notifies all users in group (the new one hasn't been added yet)
+    end
+    @user.group_id = group_id
+    @user.matched = true
+    @user.save
   end
 
   def create_group going_out
@@ -120,6 +144,7 @@ module HelperHelper
     @group.start = 1100
     @group.end = 1500
     @group.going_out = going_out
+    @group.notified = false
     @group.save
     return @group
   end

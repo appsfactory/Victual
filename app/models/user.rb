@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   include ActiveModel::Validations
  	attr_accessible :distance, :email, :matched, :name, :timeEnd, :timeStart, :foodtype, :going_out,
- 	:has_pref, :accepted, :group_id, :start, :end, :dist
+ 	:has_pref, :accepted, :group_id, :start, :end, :dist, :keep
 
   belongs_to :group
   validates :name,

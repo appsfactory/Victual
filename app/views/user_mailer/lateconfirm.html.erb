@@ -1,0 +1,12 @@
+<h5> Welcome to Victual <%= @user.name %> </h5>
+<p>
+Food type: <%= @user.foodtype %>
+<br>
+Time Constraints: <%= @user.timeStart %> to <%= @user.timeEnd %>
+<br>
+Distance: <%= @user.distance %>
+</p>
+<p>
+You will get another email when you are matched with a group
+Or, you can follow this <a href= "<%= decline_url() + "?token=" + @user.token%>">link</a> and choose a group to join.
+</p>

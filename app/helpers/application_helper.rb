@@ -156,4 +156,25 @@ module ApplicationHelper
                  # Shouldn't be more than 3 left over users
     end
   end
+  def add_latecomer going_out
+    # Puts remaining users in groups of 4, then distributes remainder (max 3)
+    # Ignores prefs, if any
+
+    puts "match_remainder"
+    users = User.where("matched = ? AND going_out = ?", false, going_out).order('dist asc').limit(6)
+    
+    while users.length >= 4
+      @group = create_group going_out
+      users[0..3].each do |user|
+        add_user_to_group user.id, @group.id
+      end
+
+      users = User.where("matched = ? AND going_out = ?", false, going_out).order('dist asc').limit(6)
+    end
+    puts "fill_groups"
+    fill_groups going_out
+    puts "Distribute remainder"
+    distribute_remaining going_out
+  end
+
 end
